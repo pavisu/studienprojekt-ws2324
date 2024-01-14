@@ -1,0 +1,4 @@
+StaticBody3D
+MeshInstance3D
+CollisionShape3D
+GridMap

@@ -1,0 +1,20 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1705259434
+animation.gd::GDScript::-1::1705231462::0::1::::<>AnimationPlayer<>::
+chara_03.gd::GDScript::-1::1705244332::0::1::::<>CharacterBody3D<>::
+chara_03.glb::PackedScene::3732791837298075779::1705231462::1705236585::1::::<><>::
+chara_03.tscn::PackedScene::1401941021879458529::1705231462::0::1::::<><>::res://chara_03.gd
+chara_04.glb::PackedScene::4262809218783287406::1705231462::1705236586::1::::<><>::
+chara_04.tscn::PackedScene::1524788102812375::1705231462::0::1::::<><>::res://chara_03.gd
+chara_05.glb::PackedScene::3681362979560961925::1705231462::1705236587::1::::<><>::
+chara_05.tscn::PackedScene::8237640622080938342::1705244332::0::1::::<><>::res://chara_03.gd
+Cute mini figure.glb::PackedScene::4892463294966564890::1705231462::1705236588::1::::<><>::
+cute_mini_figure.tscn::PackedScene::4710367143479340153::1705231462::0::1::::<><>::
+gridmaterial.tres::VisualShader::8527921838905746691::1705259306::0::1::::<><>::
+icon.svg::CompressedTexture2D::3886206400320860820::1705231462::1705236584::1::::<><>::
+README.md::TextFile::-1::1705231462::0::1::::<><>::
+world.tscn::PackedScene::422896555478155315::1705259313::0::1::::<><>::uid://dtq8vkrpvuqfj::::res://gridmaterial.tres<>uid://dpmm0cte6lx1o::::res://chara_05.tscn<>res://animation.gd<>uid://b8d0b82tji6h6::::res://cute_mini_figure.tscn<>uid://6hacd01vcgdq::::res://world_assets/tile_set_source.tres
+::res://world_assets/::1705259826
+tile_set_source.glb::PackedScene::1056041510662622341::1705259991::1705259994::1::::<><>::
+tile_set_source.tres::MeshLibrary::2190308566044862702::1705259307::0::1::::<><>::
+tile_set_source.tscn::PackedScene::7633691838790824666::1705259306::0::1::::<><>::uid://pbs345p2bekj::::res://world_assets/tile_set_source.glb
