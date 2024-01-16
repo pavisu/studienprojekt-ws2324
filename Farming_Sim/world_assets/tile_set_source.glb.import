@@ -29,6 +29,17 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"letttuce_mat_core_standalone": {
+"use_external/enabled": true,
+"use_external/path": "res://world_assets/lettuce_core_standalone_bake.png"
+},
+"letttuce_mat_standalone": {
+"use_external/enabled": true,
+"use_external/path": "res://world_assets/lettuce_standalone_bake.png"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
