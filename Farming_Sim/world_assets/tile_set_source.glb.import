@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://pbs345p2bekj"
+uid="uid://dm6u734s6ycsu"
 path="res://.godot/imported/tile_set_source.glb-74ab7b18c3a3137607b23bb663e2135e.scn"
 
 [deps]
@@ -29,17 +29,6 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"letttuce_mat_core_standalone": {
-"use_external/enabled": true,
-"use_external/path": "res://world_assets/lettuce_core_standalone_bake.png"
-},
-"letttuce_mat_standalone": {
-"use_external/enabled": true,
-"use_external/path": "res://world_assets/lettuce_standalone_bake.png"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
