@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=23 format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
+[ext_resource type="Texture2D" uid="uid://coy2u8pvo6b4f" path="res://player/crosshair_basic.png" id="1_520fs"]
 [ext_resource type="MeshLibrary" uid="uid://db8whiw6tukjy" path="res://world_assets/lettuce.tres" id="2_c5wbm"]
 [ext_resource type="PackedScene" uid="uid://dpmm0cte6lx1o" path="res://chara_05.tscn" id="3_c3dv4"]
 [ext_resource type="Script" path="res://animation.gd" id="3_w4bpu"]
@@ -94,6 +95,22 @@ size = Vector3(2.5, 0.5, 3)
 size = Vector3(3, 0.5, 3)
 
 [node name="World" type="Node3D"]
+
+[node name="Player_crosshair" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+pivot_offset = Vector2(512, 512)
+texture = ExtResource("1_520fs")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g3bud")
