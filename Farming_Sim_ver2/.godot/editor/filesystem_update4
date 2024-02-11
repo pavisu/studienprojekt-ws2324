@@ -1,0 +1,14 @@
+res://world.tscn
+res://item/items/apple.tres
+res://item/items/yellow_book.tres
+res://test_inv.tres
+res://gridmaterial.tres
+res://chara_05.tscn
+res://inventory/slot.tscn
+res://inventory/inventory.tscn
+res://inventory/inventory.gd
+res://inventory/slot.gd
+res://inventory/slot_data.gd
+res://chara_03.gd
+res://world.gd
+res://inventory/inventory_interface.gd

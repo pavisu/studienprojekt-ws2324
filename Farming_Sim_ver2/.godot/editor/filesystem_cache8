@@ -1,0 +1,30 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1707608854
+animation.gd::GDScript::-1::1705227842::0::1::::<>AnimationPlayer<>::
+chara_03.gd::GDScript::-1::1705227842::0::1::::<>CharacterBody3D<>::
+chara_03.glb::PackedScene::3732791837298075779::1705227842::1706831331::1::::<><>::
+chara_03.tscn::PackedScene::1401941021879458529::1705227842::0::1::::<><>::res://chara_03.gd
+chara_04.glb::PackedScene::4262809218783287406::1705227842::1706831332::1::::<><>::
+chara_04.tscn::PackedScene::1524788102812375::1705227842::0::1::::<><>::res://chara_03.gd
+chara_05.glb::PackedScene::3681362979560961925::1705227842::1706831333::1::::<><>::
+chara_05.tscn::PackedScene::8237640622080938342::1707404112::0::1::::<><>::res://chara_03.gd
+Cute mini figure.glb::PackedScene::4892463294966564890::1705227842::1706831334::1::::<><>::
+cute_mini_figure.tscn::PackedScene::4710367143479340153::1705227842::0::1::::<><>::
+gridmaterial.tres::VisualShader::8527921838905746691::1707400043::0::1::::<><>::
+icon.svg::CompressedTexture2D::3886206400320860820::1705227842::1706831330::1::::<><>::
+README.md::TextFile::-1::1705227842::0::1::::<><>::
+test_inv.tres::Resource/InventoryData::4854842125827960121::1707404111::0::1::::<><>::res://inventory/inventory_data.gd<>uid://dk44pm5wweydo::::res://item/items/apple.tres<>res://inventory/slot_data.gd<>uid://dpq0073icubs7::::res://item/items/yellow_book.tres
+world.tscn::PackedScene::422896555478155315::1707404111::0::1::::<><>::uid://dtq8vkrpvuqfj::::res://gridmaterial.tres<>uid://dpmm0cte6lx1o::::res://chara_05.tscn<>res://animation.gd<>uid://b8d0b82tji6h6::::res://cute_mini_figure.tscn<>uid://dld0btd4dkcya::::res://inventory/inventory.tscn
+::res://inventory/::1707404164
+inventory.gd::GDScript::-1::1707403413::0::1::::<>PanelContainer<>::
+inventory.tscn::PackedScene::7939053178873003672::1707404164::0::1::::<><>::res://inventory/inventory.gd
+inventory_data.gd::GDScript::-1::1706979289::0::1::::InventoryData<>Resource<>::
+slot.tscn::PackedScene::5563730796880883140::1707404112::0::1::::<><>::uid://bvmris5eeoseu::::res://icon.svg
+slot_data.gd::GDScript::-1::1706978589::0::1::::SlotData<>Resource<>::
+::res://item/::1707400072
+#1 - Transparent Icons.png::CompressedTexture2D::1101887301103398775::1707399852::1707399856::1::::<><>::
+item_atlas.tres::AtlasTexture::575222965638023213::1707400043::0::1::::<><>::uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+item_data.gd::GDScript::-1::1706978302::0::1::::ItemData<>Resource<>::
+::res://item/items/::1707401055
+apple.tres::Resource/ItemData::7922805699679659412::1707401055::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+yellow_book.tres::Resource/ItemData::8246689043750201544::1707401055::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
