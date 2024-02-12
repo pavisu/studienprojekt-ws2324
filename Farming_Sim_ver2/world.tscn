@@ -1,14 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=26 format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_2ey7g"]
-[ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
-[ext_resource type="PackedScene" uid="uid://dpmm0cte6lx1o" path="res://chara_05.tscn" id="3_c3dv4"]
+[ext_resource type="Shader" path="res://gridmaterial.tres" id="1_78mpy"]
 [ext_resource type="Script" path="res://animation.gd" id="3_w4bpu"]
 [ext_resource type="PackedScene" uid="uid://b8d0b82tji6h6" path="res://cute_mini_figure.tscn" id="4_bfdnx"]
 [ext_resource type="Resource" uid="uid://cbfysm3in4tqv" path="res://test_inv.tres" id="4_bj6ny"]
+[ext_resource type="PackedScene" uid="uid://r0hx456b5lor" path="res://character/character.tscn" id="5_81tks"]
 [ext_resource type="PackedScene" uid="uid://dld0btd4dkcya" path="res://inventory/inventory.tscn" id="5_uhled"]
 [ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="7_xhp4r"]
 [ext_resource type="PackedScene" uid="uid://cljd3lmeeohlc" path="res://inventory/slot.tscn" id="9_q5lab"]
+[ext_resource type="Texture2D" uid="uid://6qkuhx30us84" path="res://character/crosshair_basic.png" id="9_xvhuw"]
 
 [sub_resource type="Environment" id="Environment_g3bud"]
 background_mode = 1
@@ -321,12 +322,12 @@ alpha_cut = 2
 text = "Finish"
 font_size = 64
 
-[node name="chara_05" parent="." instance=ExtResource("3_c3dv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77951, 1, -4.13837)
-inventory_data = ExtResource("4_bj6ny")
-
 [node name="Cute mini figure" parent="." instance=ExtResource("4_bfdnx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13295, 1.31826, -7.4915)
+
+[node name="character" parent="." instance=ExtResource("5_81tks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38627, 1, -1.50758)
+inventory_data = ExtResource("4_bj6ny")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -354,3 +355,19 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="Crosshair" type="TextureRect" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+pivot_offset = Vector2(512, 512)
+texture = ExtResource("9_xvhuw")
