@@ -8,9 +8,13 @@ func _ready() -> void:
 	character.toggle_inventory.connect(toggle_inventory_intrface)
 	
 	inventory_interface.set_player_inventory_data(character.inventory_data)
+	
+	for node in get_tree().get_nodes_in_group("external_inventory"):
+		node.toggle_inventory.connect(toggle_inventory_intrface)
+	
 
 #switch with tab to visible and not visible of inventory
-func toggle_inventory_intrface() -> void:
+func toggle_inventory_intrface(external_inventory_owner = null) -> void:
 	inventory_interface.visible = not inventory_interface.visible
 	
 	#enable to see the mouse
@@ -18,3 +22,6 @@ func toggle_inventory_intrface() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	if external_inventory_owner:
+		inventory_interface.set_external_inventory(external_inventory_owner)

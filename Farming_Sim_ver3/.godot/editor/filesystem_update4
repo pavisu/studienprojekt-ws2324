@@ -13,3 +13,7 @@ res://inventory/slot.tscn
 res://inventory/inventory_interface.gd
 res://inventory/slot.gd
 res://inventory/slot_data.gd
+res://character/character.gd
+res://interactable/cute_mini_figure.tscn
+res://interactable/cute_mini_figure.gd
+res://world.gd

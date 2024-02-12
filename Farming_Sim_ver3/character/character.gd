@@ -40,6 +40,9 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
+		
+	if Input.is_action_just_pressed("interact"):
+		interact()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -66,3 +69,8 @@ func _physics_process(delta):
 	anim_tree.set("parameters/BlendSpace1D/blend_position",Vector2(velocity.x,velocity.z).length() / SPEED)
 
 	move_and_slide()
+
+func interact() -> void:
+	if ray.is_colliding():
+		#print("interact with ", ray.get_collider())
+		ray.get_collider().player_interact()

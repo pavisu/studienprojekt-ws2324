@@ -1,40 +1,41 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707773992
+::res://::1707779192
 animation.gd::GDScript::-1::1707756808::0::1::::<>AnimationPlayer<>::
-Cute mini figure.glb::PackedScene::4892463294966564890::1707756808::1707756808::1::::<><>::
-cute_mini_figure.tscn::PackedScene::4710367143479340153::1707756808::0::1::::<><>::
-gridmaterial.tres::VisualShader::8527921838905746691::1707762475::0::1::::<><>::
+gridmaterial.tres::VisualShader::8527921838905746691::1707774208::0::1::::<><>::
 icon.svg::CompressedTexture2D::3886206400320860820::1707756808::1707756808::1::::<><>::
 README.md::TextFile::-1::1707756808::0::1::::<><>::
-test_inv.tres::Resource/InventoryData::4854842125827960121::1707762475::0::1::::<><>::res://inventory/inventory_data.gd<>uid://dk44pm5wweydo::::res://item/items/apple.tres<>res://inventory/slot_data.gd<>uid://dpq0073icubs7::::res://item/items/yellow_book.tres
+test_inv.tres::Resource/InventoryData::4854842125827960121::1707776452::0::1::::<><>::res://inventory/inventory_data.gd<>uid://dk44pm5wweydo::::res://item/items/apple.tres<>res://inventory/slot_data.gd<>uid://dpq0073icubs7::::res://item/items/yellow_book.tres
 world.gd::GDScript::-1::1707762236::0::1::::<>Node3D<>::
-world.tscn::PackedScene::422896555478155315::1707762495::0::1::::<><>::res://world.gd<>uid://dtq8vkrpvuqfj::::res://gridmaterial.tres<>res://animation.gd<>uid://b8d0b82tji6h6::::res://cute_mini_figure.tscn<>uid://cbfysm3in4tqv::::res://test_inv.tres<>uid://r0hx456b5lor::::res://character/character.tscn<>uid://dld0btd4dkcya::::res://inventory/inventory.tscn<>res://inventory/inventory_interface.gd<>uid://cljd3lmeeohlc::::res://inventory/slot.tscn<>uid://6qkuhx30us84::::res://character/crosshair_basic.png<>uid://c10d165yl8f7t::::res://world_grid/tile_set_source.tres<>uid://bgelgvrxaon2j::::res://world_grid/vegetables.tres
-::res://character/::1707762496
-character.gd::GDScript::-1::1707762236::0::1::::<>CharacterBody3D<>::
+world.tscn::PackedScene::422896555478155315::1707779188::0::1::::<><>::res://world.gd<>uid://dtq8vkrpvuqfj::::res://gridmaterial.tres<>res://animation.gd<>uid://b8d0b82tji6h6::::res://interactable/cute_mini_figure.tscn<>uid://cbfysm3in4tqv::::res://test_inv.tres<>uid://r0hx456b5lor::::res://character/character.tscn<>uid://dld0btd4dkcya::::res://inventory/inventory.tscn<>res://inventory/inventory_interface.gd<>uid://cljd3lmeeohlc::::res://inventory/slot.tscn<>uid://6qkuhx30us84::::res://character/crosshair_basic.png<>uid://c10d165yl8f7t::::res://world_grid/tile_set_source.tres<>uid://bgelgvrxaon2j::::res://world_grid/vegetables.tres
+::res://character/::1707779071
+character.gd::GDScript::-1::1707779060::0::1::::<>CharacterBody3D<>::
 character.glb::PackedScene::3681362979560961925::1707762236::1707762236::1::::<><>::
-character.tscn::PackedScene::1245287448839536249::1707762496::0::1::::<><>::res://character/character.gd
+character.tscn::PackedScene::1245287448839536249::1707779071::0::1::::<><>::res://character/character.gd
 crosshair_basic.png::CompressedTexture2D::2209527487150083767::1707762236::1707762236::1::::<><>::
-::res://inventory/::1707762496
-inventory.gd::GDScript::-1::1707756808::0::1::::<>PanelContainer<>::
-inventory.tscn::PackedScene::7939053178873003672::1707756808::0::1::::<><>::res://inventory/inventory.gd
-inventory_data.gd::GDScript::-1::1707756808::0::1::::InventoryData<>Resource<>::
-inventory_interface.gd::GDScript::-1::1707756808::0::1::::<>Control<>::
-slot.gd::GDScript::-1::1707756808::0::1::::<>PanelContainer<>::
-slot.tscn::PackedScene::5563730796880883140::1707762496::0::1::::<><>::res://inventory/slot.gd
-slot_data.gd::GDScript::-1::1707756808::0::1::::SlotData<>Resource<>::
+::res://interactable/::1707779188
+Cute mini figure.glb::PackedScene::4892463294966564890::1707756808::1707779194::1::::<><>::
+cute_mini_figure.tscn::PackedScene::4710367143479340153::1707756808::0::1::::<><>::
+::res://inventory/::1707778479
+inventory.gd::GDScript::-1::1707774265::0::1::::<>PanelContainer<>::
+inventory.tscn::PackedScene::7939053178873003672::1707778163::0::1::::<><>::res://inventory/inventory.gd
+inventory_data.gd::GDScript::-1::1707778139::0::1::::InventoryData<>Resource<>::
+inventory_interface.gd::GDScript::-1::1707777740::0::1::::<>Control<>::
+slot.gd::GDScript::-1::1707774926::0::1::::<>PanelContainer<>::
+slot.tscn::PackedScene::5563730796880883140::1707778479::0::1::::<><>::res://inventory/slot.gd
+slot_data.gd::GDScript::-1::1707778050::0::1::::SlotData<>Resource<>::
 ::res://item/::1707756808
 #1 - Transparent Icons.png::CompressedTexture2D::1101887301103398775::1707756808::1707756808::1::::<><>::
 item_atlas.tres::AtlasTexture::575222965638023213::1707756808::0::1::::<><>::uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
 item_data.gd::GDScript::-1::1707756808::0::1::::ItemData<>Resource<>::
-::res://item/items/::1707762475
-apple.tres::Resource/ItemData::7922805699679659412::1707762475::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
-yellow_book.tres::Resource/ItemData::8246689043750201544::1707762475::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
-::res://world_grid/::1707762475
+::res://item/items/::1707776266
+apple.tres::Resource/ItemData::7922805699679659412::1707776266::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+yellow_book.tres::Resource/ItemData::8246689043750201544::1707774208::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+::res://world_grid/::1707774208
 lettuce_core_standalone_bake.png::CompressedTexture2D::3238221747286717629::1707762236::1707762236::1::::<><>::
 lettuce_standalone_bake.png::CompressedTexture2D::91215662020796113::1707762236::1707762236::1::::<><>::
 tile_set_source.glb::PackedScene::8066796886685173168::1707762236::1707762236::1::::<><>::
-tile_set_source.tres::MeshLibrary::6649591003120805919::1707762475::0::1::::<><>::
+tile_set_source.tres::MeshLibrary::6649591003120805919::1707774208::0::1::::<><>::
 tile_set_source.tscn::PackedScene::7633691838790824666::1707762236::0::1::::<><>::uid://dm6u734s6ycsu::::res://world_assets/tile_set_source.glb
 vegetables.glb::PackedScene::8935520960033503901::1707762236::1707762236::1::::<><>::
-vegetables.tres::MeshLibrary::2816490988519004003::1707762475::0::1::::<><>::uid://bkgkq1i8kwer::::res://world_grid/lettuce_standalone_bake.png<>uid://bmevblfrtigrt::::res://world_grid/lettuce_core_standalone_bake.png
+vegetables.tres::MeshLibrary::2816490988519004003::1707774208::0::1::::<><>::uid://bkgkq1i8kwer::::res://world_grid/lettuce_standalone_bake.png<>uid://bmevblfrtigrt::::res://world_grid/lettuce_core_standalone_bake.png
 vegetables.tscn::PackedScene::2266049706529460317::1707762236::0::1::::<><>::uid://d0koyv1h2yeq4::::res://world_grid/vegetables.glb<>uid://bkgkq1i8kwer::::res://world_grid/lettuce_standalone_bake.png<>uid://bmevblfrtigrt::::res://world_grid/lettuce_core_standalone_bake.png

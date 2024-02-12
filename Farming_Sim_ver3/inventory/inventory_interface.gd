@@ -14,6 +14,11 @@ func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
 	
+
+func set_external_inventory(external_inventory_owner) -> void:
+	print(external_inventory_owner)
+
+	
 func on_inventory_interact(inventory_data: InventoryData,
 		index:int, button:int) -> void:
 	# check if interact with slots
