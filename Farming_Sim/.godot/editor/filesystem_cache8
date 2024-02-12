@@ -1,0 +1,16 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1707762393
+animation.gd::GDScript::-1::1705231462::0::1::::<>AnimationPlayer<>::
+chara_03.gd::GDScript::-1::1707757353::0::1::::<>CharacterBody3D<>::
+chara_03.glb::PackedScene::3732791837298075779::1705231462::1707762395::1::::<><>::
+chara_03.tscn::PackedScene::1401941021879458529::1707757353::0::1::::<><>::res://chara_03.gd
+chara_04.glb::PackedScene::4262809218783287406::1705231462::1707762396::1::::<><>::
+chara_04.tscn::PackedScene::1524788102812375::1705231462::0::1::::<><>::res://chara_03.gd
+chara_05.glb::PackedScene::3681362979560961925::1705231462::1707762397::1::::<><>::
+chara_05.tscn::PackedScene::8237640622080938342::1707757353::0::1::::<><>::res://chara_03.gd
+Cute mini figure.glb::PackedScene::4892463294966564890::1705231462::1707762398::1::::<><>::
+cute_mini_figure.tscn::PackedScene::4710367143479340153::1705231462::0::1::::<><>::
+gridmaterial.tres::VisualShader::8527921838905746691::1707613093::0::1::::<><>::
+icon.svg::CompressedTexture2D::3886206400320860820::1705231462::1707762394::1::::<><>::
+README.md::TextFile::-1::1705231462::0::1::::<><>::
+world.tscn::PackedScene::422896555478155315::1707757353::0::1::::<><>::uid://dtq8vkrpvuqfj::::res://gridmaterial.tres<>uid://dpmm0cte6lx1o::::res://chara_05.tscn<>res://animation.gd<>uid://b8d0b82tji6h6::::res://cute_mini_figure.tscn
