@@ -1,12 +1,9 @@
-res://inventory/slot.gd
-res://inventory/slot.tscn
+res://world.tscn
 res://gridmaterial.tres
 res://item/items/apple.tres
 res://item/items/yellow_book.tres
 res://test_inv.tres
-res://inventory/inventory.gd
-res://inventory/inventory_data.gd
-res://world.tscn
-res://chara_05.tscn
-res://inventory/inventory.tscn
-res://inventory/inventory_interface.gd
+res://world_grid/tile_set_source.tres
+res://world_grid/lettuce.tres
+res://world_grid/vegetables.tres
+res://character/character.tscn
