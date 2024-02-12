@@ -1,0 +1,9 @@
+res://world.tscn
+res://gridmaterial.tres
+res://item/items/apple.tres
+res://item/items/yellow_book.tres
+res://test_inv.tres
+res://world_grid/tile_set_source.tres
+res://world_grid/lettuce.tres
+res://world_grid/vegetables.tres
+res://character/character.tscn
