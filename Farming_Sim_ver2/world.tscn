@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=25 format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_2ey7g"]
 [ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cbfysm3in4tqv" path="res://test_inv.tres" id="4_bj6ny"]
 [ext_resource type="PackedScene" uid="uid://dld0btd4dkcya" path="res://inventory/inventory.tscn" id="5_uhled"]
 [ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="7_xhp4r"]
+[ext_resource type="PackedScene" uid="uid://cljd3lmeeohlc" path="res://inventory/slot.tscn" id="9_q5lab"]
 
 [sub_resource type="Environment" id="Environment_g3bud"]
 background_mode = 1
@@ -345,3 +346,11 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 50.0
+
+[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("9_q5lab")]
+visible = false
+modulate = Color(1, 1, 1, 0.490196)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
