@@ -1,3 +1,0 @@
-InventoryData
-ItemData
-AtlasTexture
