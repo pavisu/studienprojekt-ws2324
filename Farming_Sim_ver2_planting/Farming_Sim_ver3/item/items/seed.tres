@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=4 format=3 uid="uid://djxgkeg42y1j"]
+
+[ext_resource type="Script" path="res://item/item_data_equip.gd" id="1_2mlym"]
+[ext_resource type="Texture2D" uid="uid://px06m3e7coff" path="res://item/#1 - Transparent Icons.png" id="2_q84pd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlydg"]
+atlas = ExtResource("2_q84pd")
+region = Rect2(416, 384, 32, 32)
+
+[resource]
+script = ExtResource("1_2mlym")
+seed = 0
+name = "Seed"
+description = "Seed the seeds."
+stackable = false
+texture = SubResource("AtlasTexture_dlydg")
