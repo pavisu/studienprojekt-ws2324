@@ -1,0 +1,15 @@
+res://vegetables/vegetables.tscn
+res://item/items/apple.tres
+res://item/items/strawberry.tres
+res://item/items/yellow_book.tres
+res://test_inv.tres
+res://gridmaterial.tres
+res://world_grid/tile_set_source.tres
+res://character/character.tscn
+res://inventory/slot.tscn
+res://inventory/inventory.tscn
+res://interactable/cute_mini_figure.tscn
+res://item/pick_up/pick_up.tscn
+res://inventory/hot_bar_inventory.tscn
+res://world.tscn
+res://world_grid/tile_set_source.tscn
