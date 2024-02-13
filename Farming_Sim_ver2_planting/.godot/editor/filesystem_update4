@@ -1,9 +1,14 @@
-res://world.tscn
+res://world_grid/vegetables.tscn
 res://gridmaterial.tres
 res://item/items/apple.tres
 res://item/items/yellow_book.tres
 res://test_inv.tres
 res://world_grid/tile_set_source.tres
-res://world_grid/lettuce.tres
 res://world_grid/vegetables.tres
+res://world_grid/vegetables.gd
+res://world.tscn
 res://character/character.tscn
+res://GridMap_plants.gd
+res://vegetables/vegetables.tscn
+res://vegetables/vegetables.gd
+res://character/character_interaction.gd
