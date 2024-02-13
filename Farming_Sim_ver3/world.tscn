@@ -407,5 +407,9 @@ texture = ExtResource("9_xvhuw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17368, 1.27866, -9.28991)
 
 [node name="PickUp" parent="." instance=ExtResource("13_u7kmf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0452666, 2.83082, -9.28313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03007, 2.83082, -9.28313)
 slot_data = SubResource("Resource_m42l4")
+
+[connection signal="drop_slot_data" from="UI/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
+[connection signal="visibility_changed" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_visibility_changed"]

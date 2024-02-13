@@ -7,6 +7,7 @@
 radius = 0.366507
 
 [node name="PickUp" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.414984, 0)
 collision_layer = 0
 lock_rotation = true
 script = ExtResource("1_pqdwi")

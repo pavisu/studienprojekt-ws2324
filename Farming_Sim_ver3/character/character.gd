@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var spring_arm = $SpringArmPivot/SpringArm3D
 @onready var anim_tree =$AnimationTree
 @onready var ray = $SpringArmPivot/RayCast3D
+@onready var camera = $SpringArmPivot/SpringArm3D/Camera3D
 
 const SPEED = 5.0
 const LERP_VAL = .15
@@ -74,3 +75,8 @@ func interact() -> void:
 	if ray.is_colliding():
 		print("interact with ", ray.get_collider())
 		ray.get_collider().player_interact()
+		
+#drop location in front of character (using ray position)
+func get_drop_position() -> Vector3:
+	var direction = -ray.global_transform.basis.z
+	return ray.global_position + direction
