@@ -4,11 +4,17 @@ const PickUp = preload("res://item/pick_up/pick_up.tscn")
 
 @onready var character: CharacterBody3D = $character
 @onready var inventory_interface: Control = $UI/InventoryInterface
+@onready var hot_bar_inventory: PanelContainer = $UI/HotBarInventory
+
 
 func _ready() -> void:
 	character.toggle_inventory.connect(toggle_inventory_intrface)
 	
 	inventory_interface.set_player_inventory_data(character.inventory_data)
+	
+	inventory_interface.force_close.connect(toggle_inventory_intrface)
+	
+	hot_bar_inventory.set_inventory_data(character.inventory_data)
 	
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_intrface)
@@ -18,11 +24,13 @@ func _ready() -> void:
 func toggle_inventory_intrface(external_inventory_owner = null) -> void:
 	inventory_interface.visible = not inventory_interface.visible
 	
-	#enable to see the mouse
+	#enable to see the mouse or hotbar
 	if inventory_interface.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		hot_bar_inventory.hide()
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		hot_bar_inventory.show()
 	
 	if external_inventory_owner and inventory_interface.visible:
 		inventory_interface.set_external_inventory(external_inventory_owner)

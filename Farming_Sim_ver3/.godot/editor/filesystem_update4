@@ -24,3 +24,8 @@ res://item/item_data_consumable.gd
 res://item/items/banana.tres
 res://item/items/strawberry.tres
 res://character/character_manager.gd
+res://inventory/hot_bar_inventory.tscn
+res://inventory/hot_bar_inventory.gd
+res://item/item_atlas.tres
+res://item/item_data_equip.gd
+res://item/items/seed.tres
