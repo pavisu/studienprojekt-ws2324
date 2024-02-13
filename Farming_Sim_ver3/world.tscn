@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=33 format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_2ey7g"]
 [ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://r0hx456b5lor" path="res://character/character.tscn" id="5_81tks"]
 [ext_resource type="PackedScene" uid="uid://dld0btd4dkcya" path="res://inventory/inventory.tscn" id="5_uhled"]
 [ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="7_xhp4r"]
+[ext_resource type="PackedScene" uid="uid://b1keshh72lxyk" path="res://inventory/hot_bar_inventory.tscn" id="9_8xgcy"]
 [ext_resource type="PackedScene" uid="uid://cljd3lmeeohlc" path="res://inventory/slot.tscn" id="9_q5lab"]
 [ext_resource type="Texture2D" uid="uid://6qkuhx30us84" path="res://character/crosshair_basic.png" id="9_xvhuw"]
 [ext_resource type="MeshLibrary" uid="uid://c10d165yl8f7t" path="res://world_grid/tile_set_source.tres" id="11_irbje"]
@@ -370,6 +371,8 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="HotBarInventory" parent="UI" instance=ExtResource("9_8xgcy")]
 
 [node name="GridMap_world" type="GridMap" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

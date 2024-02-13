@@ -18,8 +18,10 @@ signal toggle_inventory()
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var health: int = 5
 
 func _ready():
+	CharacterManager.character = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
@@ -80,3 +82,6 @@ func interact() -> void:
 func get_drop_position() -> Vector3:
 	var direction = -ray.global_transform.basis.z
 	return ray.global_position + direction
+
+func heal(heal_value: int) -> void:
+	health += heal_value

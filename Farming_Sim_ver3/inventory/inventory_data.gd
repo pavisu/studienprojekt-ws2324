@@ -55,6 +55,23 @@ func drop_single_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	else:
 		return null
 
+#consume consumable item_data with right click
+func use_slot_data(index: int) -> void:
+	var slot_data = slot_datas[index]
+	
+	if not slot_data:
+		return
+	
+	if slot_data.item_data is ItemDataConsumable:
+		slot_data.quantity -= 1
+		if slot_data.quantity < 1:
+			slot_datas[index] = null
+	
+	print(slot_data.item_data.name)
+	CharacterManager.use_slot_data(slot_data)
+	
+	inventory_updated.emit(self)
+
 #pick up the pick_up item into slot_data (walk to the item	
 func pick_up_slot_data(slot_data: SlotData) -> bool:
 	

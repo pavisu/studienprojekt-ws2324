@@ -58,9 +58,9 @@ func on_inventory_interact(inventory_data: InventoryData,
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 			
-		#case for using the item
+		#case for consuming an consumable item_data 
 		[null, MOUSE_BUTTON_RIGHT]:
-			pass
+			inventory_data.use_slot_data(index)
 		# _ can be anything, if we do have something in the slot_data
 		# single drop of item with right click
 		[_, MOUSE_BUTTON_RIGHT]:

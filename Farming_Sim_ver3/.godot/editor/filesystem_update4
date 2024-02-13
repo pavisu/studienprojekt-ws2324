@@ -19,3 +19,8 @@ res://interactable/cute_mini_figure.gd
 res://world.gd
 res://item/pick_up/pick_up.tscn
 res://item/pick_up/pick_up.gd
+res://item/item_data.gd
+res://item/item_data_consumable.gd
+res://item/items/banana.tres
+res://item/items/strawberry.tres
+res://character/character_manager.gd
