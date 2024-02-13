@@ -72,5 +72,5 @@ func _physics_process(delta):
 
 func interact() -> void:
 	if ray.is_colliding():
-		#print("interact with ", ray.get_collider())
+		print("interact with ", ray.get_collider())
 		ray.get_collider().player_interact()

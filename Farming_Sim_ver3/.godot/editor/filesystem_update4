@@ -17,3 +17,5 @@ res://character/character.gd
 res://interactable/cute_mini_figure.tscn
 res://interactable/cute_mini_figure.gd
 res://world.gd
+res://item/pick_up/pick_up.tscn
+res://item/pick_up/pick_up.gd

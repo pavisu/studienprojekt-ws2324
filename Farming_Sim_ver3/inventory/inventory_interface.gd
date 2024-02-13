@@ -2,9 +2,12 @@ extends Control
 
 #variable to store slot_data
 var grabbed_slot_data: SlotData
+var external_inventory_owner
 
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
+@onready var external_inventory: PanelContainer = $ExternalInventory
+
 
 func _physics_process(delta:float) -> void:
 	if grabbed_slot.visible:
@@ -14,9 +17,29 @@ func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
 	
+#inventory of the interactable
+func set_external_inventory(_external_inventory_owner) -> void:
+	#print(external_inventory_owner)
+	external_inventory_owner = _external_inventory_owner
+	var inventory_data = external_inventory_owner.inventory_data
+	
+	inventory_data.inventory_interact.connect(on_inventory_interact)
+	external_inventory.set_inventory_data(inventory_data)
+	
+	external_inventory.show()
 
-func set_external_inventory(external_inventory_owner) -> void:
-	print(external_inventory_owner)
+#to disconnect and clear the external_inventory
+func clear_external_inventory() -> void:
+	
+	if external_inventory_owner:
+		var inventory_data = external_inventory_owner.inventory_data
+		
+		inventory_data.inventory_interact.disconnect(on_inventory_interact)
+		external_inventory.clear_inventory_data(inventory_data)
+		
+		external_inventory.hide()
+		
+		external_inventory_owner = null
 
 	
 func on_inventory_interact(inventory_data: InventoryData,

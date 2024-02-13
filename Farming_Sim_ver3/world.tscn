@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=32 format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_2ey7g"]
 [ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://6qkuhx30us84" path="res://character/crosshair_basic.png" id="9_xvhuw"]
 [ext_resource type="MeshLibrary" uid="uid://c10d165yl8f7t" path="res://world_grid/tile_set_source.tres" id="11_irbje"]
 [ext_resource type="MeshLibrary" uid="uid://bgelgvrxaon2j" path="res://world_grid/vegetables.tres" id="12_n78de"]
+[ext_resource type="PackedScene" uid="uid://cjiv61vc2f4pv" path="res://item/pick_up/pick_up.tscn" id="13_u7kmf"]
+[ext_resource type="Resource" uid="uid://dk44pm5wweydo" path="res://item/items/apple.tres" id="14_ahc6a"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="15_fuwhr"]
 
 [sub_resource type="Environment" id="Environment_g3bud"]
 background_mode = 1
@@ -98,6 +101,11 @@ size = Vector3(2.5, 0.5, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxeai"]
 size = Vector3(3, 0.5, 3)
+
+[sub_resource type="Resource" id="Resource_m42l4"]
+script = ExtResource("15_fuwhr")
+item_data = ExtResource("14_ahc6a")
+quantity = 5
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_2ey7g")
@@ -324,9 +332,6 @@ alpha_cut = 2
 text = "Finish"
 font_size = 64
 
-[node name="Cute mini figure" parent="." instance=ExtResource("4_bfdnx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13295, 1.31826, -7.4915)
-
 [node name="character" parent="." instance=ExtResource("5_81tks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38627, 1, -1.50758)
 inventory_data = ExtResource("4_bj6ny")
@@ -349,6 +354,14 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 50.0
+
+[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("5_uhled")]
+visible = false
+layout_mode = 0
+offset_left = 1149.0
+offset_top = 366.0
+offset_right = 1189.0
+offset_bottom = 406.0
 
 [node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("9_q5lab")]
 visible = false
@@ -389,3 +402,10 @@ grow_vertical = 2
 scale = Vector2(0.05, 0.05)
 pivot_offset = Vector2(512, 512)
 texture = ExtResource("9_xvhuw")
+
+[node name="Cute mini figure" parent="." instance=ExtResource("4_bfdnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17368, 1.27866, -9.28991)
+
+[node name="PickUp" parent="." instance=ExtResource("13_u7kmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0452666, 2.83082, -9.28313)
+slot_data = SubResource("Resource_m42l4")
