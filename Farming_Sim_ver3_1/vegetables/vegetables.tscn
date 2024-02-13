@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cl33ea5btcx3e"]
+[gd_scene load_steps=25 format=3 uid="uid://cl33ea5btcx3e"]
 
 [ext_resource type="PackedScene" uid="uid://deoyahv8gqas8" path="res://vegetables/vegetables.glb" id="1_nf38j"]
 [ext_resource type="Script" path="res://vegetables/vegetables.gd" id="2_nevsj"]
 [ext_resource type="Texture2D" uid="uid://0vfvomroyw6" path="res://vegetables/lettuce_standalone_bake.png" id="3_ymjd1"]
 [ext_resource type="Texture2D" uid="uid://cup4d563h2og8" path="res://vegetables/lettuce_core_standalone_bake.png" id="4_weg6f"]
+[ext_resource type="Texture2D" uid="uid://d21shmteiphd1" path="res://vegetables/carrot_mat_orange_bake.png" id="5_0iqfb"]
+[ext_resource type="Texture2D" uid="uid://cfgykuh037eda" path="res://vegetables/carrot_mat_green_bake.png" id="6_27gxx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gn70"]
 cull_mode = 2
@@ -37,6 +39,33 @@ albedo_texture = ExtResource("3_ymjd1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o75rh"]
 size = Vector3(0.557861, 0.230408, 0.570068)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dxfw"]
+albedo_texture = ExtResource("5_0iqfb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8q2o"]
+albedo_texture = ExtResource("6_27gxx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rher4"]
+size = Vector3(0.756134, 1.65973, 0.764755)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cqym"]
+albedo_texture = ExtResource("5_0iqfb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yheeb"]
+albedo_texture = ExtResource("6_27gxx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p5osw"]
+size = Vector3(0.605255, 0.830811, 0.609833)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6kyk"]
+albedo_texture = ExtResource("5_0iqfb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ivu1"]
+albedo_texture = ExtResource("6_27gxx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5hecd"]
+size = Vector3(0.530518, 0.379761, 0.531006)
 
 [node name="vegetables" instance=ExtResource("1_nf38j")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -86,3 +115,38 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="01_lettuce_seed/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0184326, 0.115326, 0.0189209)
 shape = SubResource("BoxShape3D_o75rh")
+
+[node name="02_carrot_full" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_2dxfw")
+surface_material_override/1 = SubResource("StandardMaterial3D_b8q2o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="02_carrot_full" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="02_carrot_full/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000686646, 0.829437, -0.00185394)
+shape = SubResource("BoxShape3D_rher4")
+
+[node name="02_carrot_middle" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_2cqym")
+surface_material_override/1 = SubResource("StandardMaterial3D_yheeb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="02_carrot_middle" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="02_carrot_middle/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000228882, 0.415161, 0.00209045)
+shape = SubResource("BoxShape3D_p5osw")
+
+[node name="02_carrot_seed" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+surface_material_override/0 = SubResource("StandardMaterial3D_p6kyk")
+surface_material_override/1 = SubResource("StandardMaterial3D_1ivu1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="02_carrot_seed" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="02_carrot_seed/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00109863, 0.18988, 0.00305176)
+shape = SubResource("BoxShape3D_5hecd")
