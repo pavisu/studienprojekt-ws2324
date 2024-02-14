@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+# value for debugging output in console
+var debug = true
+
 @export var inventory_data: InventoryData
 
 @onready var armature = $Armature
@@ -19,6 +22,8 @@ const RAY_DISTANCE = 4
 
 signal toggle_inventory()
 
+signal updated_inventory()
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var health: int = 5
@@ -26,6 +31,9 @@ var health: int = 5
 func _ready():
 	CharacterManager.character = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	# Trigger plants
+	ray.trigger_planting.connect(plant_crop)
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("quit"):
@@ -98,6 +106,36 @@ func get_drop_position() -> Vector3:
 func heal(heal_value: int) -> void:
 	health += heal_value
 
+# Set status of the inventory in character_data
 func set_inventory_visible(isVisible : bool):
 	# Set the information in character_interaction
 	ray.set_inventory_visible(isVisible)
+	
+# Plant the crop
+func plant_crop():
+	# get the seed from first slot of the inventory
+	var slot = inventory_data.slot_datas[0]
+	if slot != null:
+		# Select the seed
+		var chosen_seed = ""
+		if slot.item_data.name == "carrot_seed":
+			chosen_seed = "carrot"
+		if slot.item_data.name == "lettuce_seed":
+			chosen_seed = "lettuce"
+	
+		if ray.trigger_plant(chosen_seed):
+			# decrease slot
+			slot.quantity -= 1
+			if slot.quantity < 1:
+				inventory_data.slot_datas[0] = null
+			# Send signal about the new inventory
+			updated_inventory.emit()
+			print(slot.quantity)
+			if debug:
+				print("Planting")
+		else:
+			if debug:
+				print("Planting failed")
+	else:
+		if debug:
+			print("Planting failed")

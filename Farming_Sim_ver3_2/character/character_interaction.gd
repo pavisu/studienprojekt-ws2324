@@ -9,6 +9,9 @@ var debug = true
 # Reference to vegetables
 var plantable_crop = preload("res://vegetables/vegetables.tscn")
 
+# Plant a crop
+signal trigger_planting()
+
 # variable to get information about visibility of inventory interface
 var inventory_is_visible = false
 
@@ -20,8 +23,10 @@ func transform_coords(coords : Vector3):
 	return coords
 
 # Function to plant at the selected tile
-func plant(coords : Vector3):
+func plant(coords : Vector3, chosen_seed : String):
 	var new_crop = plantable_crop.instantiate()
+	# Set new crop type
+	new_crop.croptype = chosen_seed
 	# Round the coordinates for gridmap
 	var crop_coords = transform_coords(coords)
 	# Add plant to the world
@@ -51,22 +56,25 @@ func _ready():
 	# needed for status of the inventory toggle
 	pass
 
-func trigger_plant():
+func trigger_plant(chosen_seed : String) -> bool:
 	# Check if inventory is visible
 	print("Trigger")
-	if !inventory_is_visible:
-		if Input.is_action_just_pressed("action_secondary"):
-			# Check if raycast is colliding with layer defined in collision mask
-			if is_colliding():
-				var collision_obj = get_collider()
-				var isVegetable = collision_obj.get_parent().get_parent().has_method("isVegetable")
-				if isVegetable:
-					print("Cant' plant crop")
-				
-				else:
-					# Plant crop
-					var col_point = get_collision_point()
-					plant(col_point)
+	# Check if raycast is colliding with layer defined in collision mask
+	if is_colliding():
+		var collision_obj = get_collider()
+		var isVegetable = collision_obj.get_parent().get_parent().has_method("isVegetable")
+		if isVegetable:
+			print("Cant' plant crop")
+			return false
+			
+		else:
+			# Plant crop
+			var col_point = get_collision_point()
+			plant(col_point, chosen_seed)
+			return true
+		
+	# Return if not colliding
+	return false
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.	
@@ -86,7 +94,10 @@ func _process(delta):
 					print("isVegetable: ", isVegetable)
 			
 				harvest(collision_obj)
-			
+				
+		if Input.is_action_just_pressed("action_secondary"):
+			trigger_planting.emit()
+			print("right-clicked")
 		
 
 

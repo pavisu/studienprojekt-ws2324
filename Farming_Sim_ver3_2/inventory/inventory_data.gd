@@ -4,6 +4,8 @@ class_name InventoryData
 signal inventory_updated(inventory_data: InventoryData)
 signal inventory_interact(inventory_data: InventoryData,index:int, button:int)
 
+signal trigger_plant()
+
 @export var slot_datas: Array[SlotData]
 
 func grab_slot_data(index: int) -> SlotData:
@@ -61,18 +63,13 @@ func use_slot_data(index: int) -> void:
 	
 	if not slot_data:
 		return
-		
-	# decrease slot item 
-	slot_data.quantity -= 1
-	if slot_data.quantity < 1:
-		slot_datas[index] = null
-		
-	#if slot_data.item_data is ItemDataConsumable:
-	#	slot_data.quantity -= 1
-	#	if slot_data.quantity < 1:
-	#		slot_datas[index] = null
+
+	if slot_data.item_data is ItemDataConsumable:
+		slot_data.quantity -= 1
+		if slot_data.quantity < 1:
+			slot_datas[index] = null
 	
-	print(slot_data.item_data.name)
+	#print(slot_data.item_data.name)
 	CharacterManager.use_slot_data(slot_data)
 	
 	inventory_updated.emit(self)

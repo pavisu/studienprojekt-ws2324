@@ -19,3 +19,4 @@ res://inventory/hot_bar_inventory.tscn
 res://world_grid/tile_set_source.tscn
 res://vegetables/vegetables.tscn
 res://character/character_interaction.gd
+res://inventory/inventory_data.gd

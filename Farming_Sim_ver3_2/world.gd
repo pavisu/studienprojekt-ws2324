@@ -18,8 +18,8 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_intrface)
 		
-	
-	
+	character.updated_inventory.connect(update_inventory_ref)
+
 
 #switch with tab to visible and not visible of inventory
 func toggle_inventory_intrface(external_inventory_owner = null) -> void:
@@ -47,3 +47,7 @@ func _on_inventory_interface_drop_slot_data(slot_data):
 	pick_up.slot_data = slot_data
 	pick_up.position = character.get_drop_position()
 	add_child(pick_up)
+	
+func update_inventory_ref():
+	inventory_interface.set_player_inventory_data(character.inventory_data)
+	hot_bar_inventory.set_inventory_data(character.inventory_data)
