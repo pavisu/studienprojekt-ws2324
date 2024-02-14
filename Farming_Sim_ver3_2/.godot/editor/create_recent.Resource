@@ -1,5 +1,5 @@
-ItemDataEquip
 ItemDataConsumable
+ItemDataEquip
+AtlasTexture
 InventoryData
 ItemData
-AtlasTexture

@@ -1,6 +1,6 @@
 extends Node3D
 
-const PickUp = preload("res://item/pick_up/pick_up.tscn")
+const PickUp = preload("res://item/pick_up/pick_up.tscn") 
 
 @onready var character: CharacterBody3D = $character
 @onready var inventory_interface: Control = $UI/InventoryInterface
