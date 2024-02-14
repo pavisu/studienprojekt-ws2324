@@ -1,63 +1,66 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707936327
-animation.gd::GDScript::-1::1707936263::0::1::::<>AnimationPlayer<>::
-gridmaterial.tres::VisualShader::8527921838905746691::1707936263::0::1::::<><>::
-icon.svg::CompressedTexture2D::3886206400320860820::1707936263::1707936263::1::::<><>::
-README.md::TextFile::-1::1707936263::0::1::::<><>::
-test_inv.tres::Resource/InventoryData::4854842125827960121::1707936263::0::1::::<><>::res://inventory/inventory_data.gd<>uid://4w0igar4iudp::::res://item/items/carrot_seed.tres<>res://inventory/slot_data.gd<>uid://yv2piftl5fcn::::res://item/items/lettuce_seed.tres<>uid://bq6w8apbkbct8::::res://item/items/carrot.tres<>uid://dub5c0pedjvo6::::res://item/items/lettuce.tres
-world.gd::GDScript::-1::1707936263::0::1::::<>Node3D<>::
-world.tscn::PackedScene::422896555478155315::1707936263::0::1::::<><>::res://world.gd<>uid://dtq8vkrpvuqfj::::res://gridmaterial.tres<>res://animation.gd<>uid://b8d0b82tji6h6::::res://interactable/cute_mini_figure.tscn<>uid://r0hx456b5lor::::res://character/character.tscn<>uid://dld0btd4dkcya::::res://inventory/inventory.tscn<>res://inventory/inventory_interface.gd<>uid://b1keshh72lxyk::::res://inventory/hot_bar_inventory.tscn<>uid://cljd3lmeeohlc::::res://inventory/slot.tscn<>uid://6qkuhx30us84::::res://character/crosshair_basic.png<>uid://c10d165yl8f7t::::res://world_grid/tile_set_source.tres<>uid://cjiv61vc2f4pv::::res://item/pick_up/pick_up.tscn<>uid://dk44pm5wweydo::::res://item/items/apple.tres<>res://inventory/slot_data.gd
-::res://character/::1707936263
-character.gd::GDScript::-1::1707936263::0::1::::<>CharacterBody3D<>::
-character.glb::PackedScene::3681362979560961925::1707936263::1707936263::1::::<><>::
-character.tscn::PackedScene::1245287448839536249::1707936263::0::1::::<><>::res://character/character.gd<>uid://cbfysm3in4tqv::::res://test_inv.tres<>res://character/character_interaction.gd
-character_interaction.gd::GDScript::-1::1707936263::0::1::::<>RayCast3D<>::
-character_manager.gd::GDScript::-1::1707936263::0::1::::<>Node<>::
-crosshair_basic.png::CompressedTexture2D::2209527487150083767::1707936263::1707936263::1::::<><>::
-::res://interactable/::1707936263
-Cute mini figure.glb::PackedScene::4892463294966564890::1707936263::1707936263::1::::<><>::
-cute_mini_figure.gd::GDScript::-1::1707936263::0::1::::<>RigidBody3D<>::
-cute_mini_figure.tscn::PackedScene::4710367143479340153::1707936263::0::1::::<><>::res://interactable/cute_mini_figure.gd<>res://inventory/inventory_data.gd<>uid://dpq0073icubs7::::res://item/items/yellow_book.tres<>res://inventory/slot_data.gd
-::res://inventory/::1707936263
-hot_bar_inventory.gd::GDScript::-1::1707936263::0::1::::<>PanelContainer<>::
-hot_bar_inventory.tscn::PackedScene::4232249788051451102::1707936263::0::1::::<><>::res://inventory/hot_bar_inventory.gd
-inventory.gd::GDScript::-1::1707936263::0::1::::<>PanelContainer<>::
-inventory.tscn::PackedScene::7939053178873003672::1707936263::0::1::::<><>::res://inventory/inventory.gd
-inventory_data.gd::GDScript::-1::1707936263::0::1::::InventoryData<>Resource<>::
-inventory_interface.gd::GDScript::-1::1707936263::0::1::::<>Control<>::
-slot.gd::GDScript::-1::1707936263::0::1::::<>PanelContainer<>::
-slot.tscn::PackedScene::5563730796880883140::1707936263::0::1::::<><>::res://inventory/slot.gd
-slot_data.gd::GDScript::-1::1707936263::0::1::::SlotData<>Resource<>::
-::res://item/::1707936263
-#1 - Transparent Icons.png::CompressedTexture2D::1101887301103398775::1707936263::1707936263::1::::<><>::
-item_atlas.tres::AtlasTexture::575222965638023213::1707936263::0::1::::<><>::uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
-item_data.gd::GDScript::-1::1707936263::0::1::::ItemData<>Resource<>::
-item_data_consumable.gd::GDScript::-1::1707936263::0::1::::ItemDataConsumable<>ItemData<>::
-item_data_equip.gd::GDScript::-1::1707936263::0::1::::ItemDataEquip<>ItemData<>::
-vegetables_atlas.tres::AtlasTexture::6288035493459021975::1707936263::0::1::::<><>::uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
-vegetables_icons.png::CompressedTexture2D::475896243389274894::1707936263::1707936263::1::::<><>::
-::res://item/items/::1707936263
-apple.tres::Resource/ItemData::7922805699679659412::1707936263::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
-carrot.tres::Resource/ItemDataConsumable::3574832620548103351::1707936263::0::1::::<><>::res://item/item_data_consumable.gd<>uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
-carrot_seed.tres::Resource/ItemDataEquip::2082425303214249461::1707936263::0::1::::<><>::res://item/item_data_equip.gd<>uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
-lettuce.tres::Resource/ItemDataConsumable::8566929719406763399::1707936263::0::1::::<><>::res://item/item_data_consumable.gd<>uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
-lettuce_seed.tres::Resource/ItemDataEquip::1729550754651281445::1707936263::0::1::::<><>::res://item/item_data_equip.gd<>uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
-seed.tres::Resource/ItemDataEquip::230553668022868421::1707936263::0::1::::<><>::res://item/item_data_equip.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
-strawberry.tres::Resource/ItemDataConsumable::6479151893538580220::1707936263::0::1::::<><>::res://item/item_data_consumable.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
-yellow_book.tres::Resource/ItemData::8246689043750201544::1707936263::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
-::res://item/pick_up/::1707936263
-pick_up.gd::GDScript::-1::1707936263::0::1::::<>RigidBody3D<>::
-pick_up.tscn::PackedScene::5422387796795298271::1707936263::0::1::::<><>::uid://igv3q7y0tuqv::::res://item/item_atlas.tres<>res://item/pick_up/pick_up.gd
-::res://vegetables/::1707936263
-carrot_mat_green_bake.png::CompressedTexture2D::5137647980321366038::1707936263::1707936263::1::::<><>::
-carrot_mat_orange_bake.png::CompressedTexture2D::9109140717163378132::1707936263::1707936263::1::::<><>::
-crop_type.gd::GDScript::-1::1707936263::0::1::::CropType<>Node<>::
-lettuce_core_standalone_bake.png::CompressedTexture2D::6209351681501753645::1707936263::1707936263::1::::<><>::
-lettuce_standalone_bake.png::CompressedTexture2D::52894554855251051::1707936263::1707936263::1::::<><>::
-vegetables.gd::GDScript::-1::1707936263::0::1::::<>Node3D<>::
-vegetables.glb::PackedScene::7470376323627024965::1707936263::1707936263::1::::<><>::
-vegetables.tscn::PackedScene::5604428489906377080::1707936263::0::1::::<><>::uid://deoyahv8gqas8::::res://vegetables/vegetables.glb<>res://vegetables/vegetables.gd<>uid://0vfvomroyw6::::res://vegetables/lettuce_standalone_bake.png<>uid://cup4d563h2og8::::res://vegetables/lettuce_core_standalone_bake.png<>uid://d21shmteiphd1::::res://vegetables/carrot_mat_orange_bake.png<>uid://cfgykuh037eda::::res://vegetables/carrot_mat_green_bake.png
-::res://world_grid/::1707936263
-tile_set_source.glb::PackedScene::8066796886685173168::1707936263::1707936263::1::::<><>::
-tile_set_source.tres::MeshLibrary::6649591003120805919::1707936263::0::1::::<><>::
-tile_set_source.tscn::PackedScene::7633691838790824666::1707936263::0::1::::<><>::uid://dm6u734s6ycsu::::res://world_grid/tile_set_source.glb
+::res://::1707939974
+animation.gd::GDScript::-1::1707938508::0::1::::<>AnimationPlayer<>::
+gridmaterial.tres::VisualShader::8527921838905746691::1707939070::0::1::::<><>::
+icon.svg::CompressedTexture2D::3886206400320860820::1707938508::1707938508::1::::<><>::
+README.md::TextFile::-1::1707938508::0::1::::<><>::
+test_inv.tres::Resource/InventoryData::4854842125827960121::1707939070::0::1::::<><>::res://inventory/inventory_data.gd<>uid://4w0igar4iudp::::res://item/items/carrot_seed.tres<>res://inventory/slot_data.gd<>uid://yv2piftl5fcn::::res://item/items/lettuce_seed.tres<>uid://bq6w8apbkbct8::::res://item/items/carrot.tres<>uid://dub5c0pedjvo6::::res://item/items/lettuce.tres
+world.gd::GDScript::-1::1707938508::0::1::::<>Node3D<>::
+world.tscn::PackedScene::422896555478155315::1707939974::0::1::::<><>::res://world.gd<>res://animation.gd<>uid://b8d0b82tji6h6::::res://interactable/cute_mini_figure.tscn<>uid://r0hx456b5lor::::res://character/character.tscn<>uid://dld0btd4dkcya::::res://inventory/inventory.tscn<>res://inventory/inventory_interface.gd<>uid://b1keshh72lxyk::::res://inventory/hot_bar_inventory.tscn<>uid://cljd3lmeeohlc::::res://inventory/slot.tscn<>uid://6qkuhx30us84::::res://character/crosshair_basic.png<>uid://c10d165yl8f7t::::res://world_grid/tile_set_source.tres<>uid://bq6w8apbkbct8::::res://item/items/carrot.tres<>uid://cjiv61vc2f4pv::::res://item/pick_up/pick_up.tscn<>uid://dk44pm5wweydo::::res://item/items/apple.tres<>res://inventory/slot_data.gd<>uid://cf7mms85w7uid::::res://all_props/house.tscn
+::res://all_props/::1707939976
+house.glb::PackedScene::1739224723388464538::1707938989::1707940669::1::::<><>::
+house.tscn::PackedScene::5190596704938924739::1707940098::0::1::::<><>::uid://y1q1ok00cupm::::res://all_props/house.glb
+::res://character/::1707939975
+character.gd::GDScript::-1::1707938508::0::1::::<>CharacterBody3D<>::
+character.glb::PackedScene::3681362979560961925::1707938508::1707938508::1::::<><>::
+character.tscn::PackedScene::1245287448839536249::1707939975::0::1::::<><>::res://character/character.gd<>uid://cbfysm3in4tqv::::res://test_inv.tres<>res://character/character_interaction.gd
+character_interaction.gd::GDScript::-1::1707938508::0::1::::<>RayCast3D<>::
+character_manager.gd::GDScript::-1::1707938508::0::1::::<>Node<>::
+crosshair_basic.png::CompressedTexture2D::2209527487150083767::1707938508::1707938508::1::::<><>::
+::res://interactable/::1707938508
+Cute mini figure.glb::PackedScene::4892463294966564890::1707938508::1707938508::1::::<><>::
+cute_mini_figure.gd::GDScript::-1::1707938508::0::1::::<>RigidBody3D<>::
+cute_mini_figure.tscn::PackedScene::4710367143479340153::1707938508::0::1::::<><>::res://interactable/cute_mini_figure.gd<>res://inventory/inventory_data.gd<>uid://dpq0073icubs7::::res://item/items/yellow_book.tres<>res://inventory/slot_data.gd
+::res://inventory/::1707938508
+hot_bar_inventory.gd::GDScript::-1::1707938508::0::1::::<>PanelContainer<>::
+hot_bar_inventory.tscn::PackedScene::4232249788051451102::1707938508::0::1::::<><>::res://inventory/hot_bar_inventory.gd
+inventory.gd::GDScript::-1::1707938508::0::1::::<>PanelContainer<>::
+inventory.tscn::PackedScene::7939053178873003672::1707938508::0::1::::<><>::res://inventory/inventory.gd
+inventory_data.gd::GDScript::-1::1707938508::0::1::::InventoryData<>Resource<>::
+inventory_interface.gd::GDScript::-1::1707938508::0::1::::<>Control<>::
+slot.gd::GDScript::-1::1707938508::0::1::::<>PanelContainer<>::
+slot.tscn::PackedScene::5563730796880883140::1707938508::0::1::::<><>::res://inventory/slot.gd
+slot_data.gd::GDScript::-1::1707938508::0::1::::SlotData<>Resource<>::
+::res://item/::1707938508
+#1 - Transparent Icons.png::CompressedTexture2D::1101887301103398775::1707938508::1707938508::1::::<><>::
+item_atlas.tres::AtlasTexture::575222965638023213::1707938508::0::1::::<><>::uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+item_data.gd::GDScript::-1::1707938508::0::1::::ItemData<>Resource<>::
+item_data_consumable.gd::GDScript::-1::1707938508::0::1::::ItemDataConsumable<>ItemData<>::
+item_data_equip.gd::GDScript::-1::1707938508::0::1::::ItemDataEquip<>ItemData<>::
+vegetables_atlas.tres::AtlasTexture::6288035493459021975::1707938508::0::1::::<><>::uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
+vegetables_icons.png::CompressedTexture2D::475896243389274894::1707938508::1707938508::1::::<><>::
+::res://item/items/::1707939070
+apple.tres::Resource/ItemData::7922805699679659412::1707939070::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+carrot.tres::Resource/ItemDataConsumable::3574832620548103351::1707939070::0::1::::<><>::res://item/item_data_consumable.gd<>uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
+carrot_seed.tres::Resource/ItemDataEquip::2082425303214249461::1707939070::0::1::::<><>::res://item/item_data_equip.gd<>uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
+lettuce.tres::Resource/ItemDataConsumable::8566929719406763399::1707939070::0::1::::<><>::res://item/item_data_consumable.gd<>uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
+lettuce_seed.tres::Resource/ItemDataEquip::1729550754651281445::1707939070::0::1::::<><>::res://item/item_data_equip.gd<>uid://g1r7aqvb5irm::::res://item/vegetables_icons.png
+seed.tres::Resource/Resource::230553668022868421::1707938508::0::1::::<><>::res://item/item_data_equip.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+strawberry.tres::Resource/Resource::6479151893538580220::1707938508::0::1::::<><>::res://item/item_data_consumable.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+yellow_book.tres::Resource/ItemData::8246689043750201544::1707939070::0::1::::<><>::res://item/item_data.gd<>uid://px06m3e7coff::::res://item/#1 - Transparent Icons.png
+::res://item/pick_up/::1707939975
+pick_up.gd::GDScript::-1::1707938508::0::1::::<>RigidBody3D<>::
+pick_up.tscn::PackedScene::5422387796795298271::1707939975::0::1::::<><>::uid://igv3q7y0tuqv::::res://item/item_atlas.tres<>res://item/pick_up/pick_up.gd
+::res://vegetables/::1707939975
+carrot_mat_green_bake.png::CompressedTexture2D::5137647980321366038::1707938508::1707938508::1::::<><>::
+carrot_mat_orange_bake.png::CompressedTexture2D::9109140717163378132::1707938508::1707938508::1::::<><>::
+crop_type.gd::GDScript::-1::1707938508::0::1::::CropType<>Node<>::
+lettuce_core_standalone_bake.png::CompressedTexture2D::6209351681501753645::1707938508::1707938508::1::::<><>::
+lettuce_standalone_bake.png::CompressedTexture2D::52894554855251051::1707938508::1707938508::1::::<><>::
+vegetables.gd::GDScript::-1::1707938508::0::1::::<>Node3D<>::
+vegetables.glb::PackedScene::7470376323627024965::1707938508::1707938508::1::::<><>::
+vegetables.tscn::PackedScene::5604428489906377080::1707939975::0::1::::<><>::uid://deoyahv8gqas8::::res://vegetables/vegetables.glb<>res://vegetables/vegetables.gd<>uid://0vfvomroyw6::::res://vegetables/lettuce_standalone_bake.png<>uid://cup4d563h2og8::::res://vegetables/lettuce_core_standalone_bake.png<>uid://d21shmteiphd1::::res://vegetables/carrot_mat_orange_bake.png<>uid://cfgykuh037eda::::res://vegetables/carrot_mat_green_bake.png
+::res://world_grid/::1707939975
+tile_set_source.glb::PackedScene::8066796886685173168::1707938508::1707938508::1::::<><>::
+tile_set_source.tres::MeshLibrary::6649591003120805919::1707939070::0::1::::<><>::
+tile_set_source.tscn::PackedScene::7633691838790824666::1707939975::0::1::::<><>::uid://dm6u734s6ycsu::::res://world_grid/tile_set_source.glb
