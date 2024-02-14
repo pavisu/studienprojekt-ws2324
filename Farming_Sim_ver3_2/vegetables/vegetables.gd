@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var harvest_amount = 1
+@export var harvest_amount_seed = 2
 @export var croptype = CropType.CARROT
 
 # Reference to PickUp and SlotData
@@ -46,6 +47,9 @@ func get_croptype():
 func get_harvest_amount():
 	return harvest_amount
 
+func get_harvest_amount_seed():
+	return harvest_amount_seed
+
 func isVegetable():
 	return true
 
@@ -62,7 +66,7 @@ func create_seed_pick(croptype: String):
 		slot_data.item_data = lettuce_seed
 		
 	# Set the returnable amount of harvested crops
-	slot_data.set_quantity(get_harvest_amount())
+	slot_data.set_quantity(get_harvest_amount_seed())
 	pick_up.slot_data = slot_data
 	
 	# Set the position to be dropped where the crop is harvested

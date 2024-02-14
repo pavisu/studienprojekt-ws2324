@@ -2,20 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://dm6u734s6ycsu" path="res://world_grid/tile_set_source.glb" id="1_jf0x2"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_anjvp"]
-data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
-
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h05pq"]
 data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_anjvp"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
+
 [node name="tile_set_source" instance=ExtResource("1_jf0x2")]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="01_grass" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="01_grass/StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_anjvp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="00_dirt" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="00_dirt/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_h05pq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="01_grass" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="01_grass/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_anjvp")

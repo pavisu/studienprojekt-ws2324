@@ -136,10 +136,10 @@ func plant_crop():
 			if slot.quantity < 1:
 				inventory_data.slot_datas[0] = null
 			# Send signal about the new inventory
-			updated_inventory.emit()
-			print(slot.quantity)
+			updated_inventory.emit()		
 			if debug:
-				print("Planting")
+				print("Planting Slot Quantity: ", slot.quantity)
+				print("Planting suceeded")
 		else:
 			if debug:
 				print("Planting failed")

@@ -3,6 +3,8 @@ extends RayCast3D
 # value for debugging output in console
 var debug = true
 
+const DIRT_TILE = 0
+
 # Reference to character
 @onready var character: CharacterBody3D = get_node("../..")
 
@@ -28,16 +30,16 @@ func plant(coords : Vector3, chosen_seed : String):
 	# Set new crop type
 	new_crop.croptype = chosen_seed
 	# Round the coordinates for gridmap
-	var crop_coords = transform_coords(coords)
+	#var crop_coords = transform_coords(coords)
 	# Add plant to the world
 	get_tree().get_root().add_child(new_crop)
 	# Scale and transform the plant
 	new_crop.scale = Vector3(0.5, 0.5, 0.5)
-	new_crop.global_transform.origin = crop_coords
+	new_crop.global_transform.origin = coords
 	
 	if debug:
 		print("Collision Point: ", coords)
-		print("Collision Point rounded: ", crop_coords)
+		print("Collision Point rounded: ", coords)
 		print("CropType: ", new_crop.croptype)
 		print("Planting crop")
 
@@ -59,21 +61,36 @@ func _ready():
 
 func trigger_plant(chosen_seed : String) -> bool:
 	# Check if inventory is visible
-	print("Trigger")
+	if debug:
+		print("Trigger Planting")
 	# Check if raycast is colliding with layer defined in collision mask
 	if is_colliding():
 		var collision_obj = get_collider()
-		var isVegetable = collision_obj.get_parent().get_parent().has_method("isVegetable")
-		if isVegetable:
-			print("Cant' plant crop")
-			return false
+		var col_point = transform_coords(get_collision_point())
+		# Check if the collision point lies in the gridmap
+		if collision_obj.is_class("GridMap"): 
+			# Check Material of the grid map with transformed coordinates
+			var point_to_check = Vector3(col_point.x, col_point.y-1, col_point.z)
+			if collision_obj.get_cell_item(point_to_check) == DIRT_TILE:
+				# Check if the selected grid tile has a vegetable
+				var isVegetable = collision_obj.get_parent().get_parent().has_method("isVegetable")
+				if isVegetable:
+					if debug:
+						print("Cant' plant crop")
+					return false
 			
-		else:
-			# Plant crop
-			var col_point = get_collision_point()
-			plant(col_point, chosen_seed)
-			return true
+				else:
+					# Plant crop with transformed coords
+					plant(col_point, chosen_seed)
+					return true
 		
+			else:
+				if debug:
+					print("Selected point is not plantable")
+		
+		else:
+			if debug:
+				print("Selected point is not a gridmap")
 	# Return if not colliding
 	return false
 
@@ -98,7 +115,7 @@ func _process(delta):
 				
 		if Input.is_action_just_pressed("action_secondary"):
 			trigger_planting.emit()
-			print("right-clicked")
+			print("Start planting")
 		
 
 
