@@ -1,0 +1,15 @@
+OmniLight3D
+CollisionShape3D
+GridMap
+HBoxContainer
+MarginContainer
+PanelContainer
+Area3D
+Sprite3D
+RigidBody3D
+Node3D
+RayCast3D
+TextureRect
+Control
+CanvasLayer
+GridContainer

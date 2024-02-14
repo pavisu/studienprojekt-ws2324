@@ -1,0 +1,16 @@
+res://item/items/carrot.tres
+res://item/items/carrot_seed.tres
+res://item/items/lettuce.tres
+res://item/items/lettuce_seed.tres
+res://item/items/yellow_book.tres
+res://test_inv.tres
+res://world_grid/tile_set_source.tres
+res://item/items/apple.tres
+res://gridmaterial.tres
+res://all_props/house.tscn
+res://world.tscn
+res://character/character.tscn
+res://item/pick_up/pick_up.tscn
+res://vegetables/vegetables.tscn
+res://world_grid/tile_set_source.tscn
+res://interactable/cute_mini_figure.tscn

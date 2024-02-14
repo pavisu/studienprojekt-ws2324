@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=12 format=3 uid="uid://cbfysm3in4tqv"]
+
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="1_i1qs7"]
+[ext_resource type="Resource" uid="uid://4w0igar4iudp" path="res://item/items/carrot_seed.tres" id="2_ukicr"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="3_s3n4t"]
+[ext_resource type="Resource" uid="uid://yv2piftl5fcn" path="res://item/items/lettuce_seed.tres" id="5_0i6hi"]
+[ext_resource type="Resource" uid="uid://bq6w8apbkbct8" path="res://item/items/carrot.tres" id="5_ipdu8"]
+[ext_resource type="Resource" uid="uid://dub5c0pedjvo6" path="res://item/items/lettuce.tres" id="6_gy68t"]
+
+[sub_resource type="Resource" id="Resource_qeqc2"]
+script = ExtResource("3_s3n4t")
+item_data = ExtResource("2_ukicr")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_q6u1d"]
+script = ExtResource("3_s3n4t")
+item_data = ExtResource("5_0i6hi")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_fy60l"]
+script = ExtResource("3_s3n4t")
+item_data = ExtResource("5_ipdu8")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_v3v2u"]
+script = ExtResource("3_s3n4t")
+item_data = ExtResource("6_gy68t")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_5qo6d"]
+script = ExtResource("3_s3n4t")
+item_data = ExtResource("5_ipdu8")
+quantity = 7
+
+[resource]
+script = ExtResource("1_i1qs7")
+slot_datas = Array[ExtResource("3_s3n4t")]([SubResource("Resource_qeqc2"), SubResource("Resource_q6u1d"), SubResource("Resource_fy60l"), SubResource("Resource_v3v2u"), SubResource("Resource_5qo6d"), null, null, null, null, null, null, null, null, null, null, null, null, null])
