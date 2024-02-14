@@ -15,7 +15,12 @@ const LERP_VAL = .15
 const JUMP_VAL= 5.0
 const RAY_DISTANCE = 4
 
+
 signal toggle_inventory()
+
+# Info about visibility of the inventory
+signal inventory_is_visible(isVisible: bool)
+var isVisible = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -44,6 +49,10 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
+		# needed to inform character_interaction
+		isVisible = !isVisible
+		inventory_is_visible.emit(isVisible)
+		
 		
 	if Input.is_action_just_pressed("interact"):
 		interact()
@@ -94,3 +103,7 @@ func get_drop_position() -> Vector3:
 
 func heal(heal_value: int) -> void:
 	health += heal_value
+
+
+func _on_world_inventory_is_visible():
+	pass # Replace with function body.

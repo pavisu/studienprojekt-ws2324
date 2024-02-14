@@ -21,3 +21,6 @@ res://item/items/carrot.tres
 res://character/character.gd
 res://vegetables/vegetables.gd
 res://world.gd
+res://character/character_interaction.gd
+res://CropType.gd
+res://vegetables/crop_type.gd

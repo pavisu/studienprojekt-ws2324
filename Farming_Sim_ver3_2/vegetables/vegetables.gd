@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var harvest_amount = 1
-@export var croptype = "carrot"
+@export var croptype = CropType.CARROT
 
 # Reference to PickUp and SlotData
 const PickUp = preload("res://item/pick_up/pick_up.tscn")
@@ -56,9 +56,9 @@ func create_seed_pick(croptype: String):
 	var pick_up = PickUp.instantiate()
 	
 	# set the type of crop
-	if croptype == "carrot":
+	if croptype == CropType.CARROT:
 		slot_data.item_data = carrot_seed
-	if croptype == "lettuce":
+	if croptype == CropType.LETTUCE:
 		slot_data.item_data = lettuce_seed
 		
 	# Set the returnable amount of harvested crops
@@ -77,9 +77,9 @@ func create_crop_pick(croptype: String):
 	var pick_up = PickUp.instantiate()
 	
 	# set the type of crop
-	if croptype == "carrot":
+	if croptype == CropType.CARROT:
 		slot_data.item_data = carrot
-	if croptype == "lettuce":
+	if croptype == CropType.LETTUCE:
 		slot_data.item_data = lettuce
 		
 	# Set the returnable amount of harvested crops
@@ -126,7 +126,7 @@ func _process(delta):
 	if growth_val < growth_max_val:
 		growth_val += delta / growth_time_in_seconds
 		
-	if croptype == "lettuce":
+	if croptype == CropType.LETTUCE:
 		# Visibility of the crop from seedling -> full_grown
 		lettuce_full.visible = growth_val >= growth_max_val
 		lettuce_middle.visible = growth_val < growth_max_val && growth_val >= growth_seed_to_middle_val
@@ -137,7 +137,7 @@ func _process(delta):
 		lettuce_middle_col.disabled = growth_val >= growth_max_val || growth_val < growth_seed_to_middle_val
 		lettuce_seedling_col.disabled = growth_val >= growth_seed_to_middle_val
 		
-	if croptype == "carrot":
+	if croptype == CropType.CARROT:
 		# Visibility of the crop from seedling -> full_grown
 		carrot_full.visible = growth_val >= growth_max_val
 		carrot_middle.visible = growth_val < growth_max_val && growth_val >= growth_seed_to_middle_val

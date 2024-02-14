@@ -6,7 +6,6 @@ const PickUp = preload("res://item/pick_up/pick_up.tscn")
 @onready var inventory_interface: Control = $UI/InventoryInterface
 @onready var hot_bar_inventory: PanelContainer = $UI/HotBarInventory
 
-
 func _ready() -> void:
 	character.toggle_inventory.connect(toggle_inventory_intrface)
 	
@@ -23,7 +22,7 @@ func _ready() -> void:
 #switch with tab to visible and not visible of inventory
 func toggle_inventory_intrface(external_inventory_owner = null) -> void:
 	inventory_interface.visible = not inventory_interface.visible
-	
+
 	#enable to see the mouse or hotbar
 	if inventory_interface.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
