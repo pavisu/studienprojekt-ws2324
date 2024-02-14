@@ -61,16 +61,23 @@ func use_slot_data(index: int) -> void:
 	
 	if not slot_data:
 		return
-	
-	if slot_data.item_data is ItemDataConsumable:
-		slot_data.quantity -= 1
-		if slot_data.quantity < 1:
-			slot_datas[index] = null
+		
+	# decrease slot item 
+	slot_data.quantity -= 1
+	if slot_data.quantity < 1:
+		slot_datas[index] = null
+		
+	#if slot_data.item_data is ItemDataConsumable:
+	#	slot_data.quantity -= 1
+	#	if slot_data.quantity < 1:
+	#		slot_datas[index] = null
 	
 	print(slot_data.item_data.name)
 	CharacterManager.use_slot_data(slot_data)
 	
 	inventory_updated.emit(self)
+	
+	
 
 #pick up the pick_up item into slot_data (walk to the item	
 func pick_up_slot_data(slot_data: SlotData) -> bool:

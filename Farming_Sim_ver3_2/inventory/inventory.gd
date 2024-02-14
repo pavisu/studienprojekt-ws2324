@@ -27,4 +27,4 @@ func populate_item_grid(inventory_data: InventoryData) -> void:
 		# check slot data and update parameter
 		if slot_data:
 			slot.set_slot_data(slot_data)
-		
+			

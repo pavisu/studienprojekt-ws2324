@@ -17,12 +17,17 @@ func _ready() -> void:
 	
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_intrface)
+		
+	
 	
 
 #switch with tab to visible and not visible of inventory
 func toggle_inventory_intrface(external_inventory_owner = null) -> void:
 	inventory_interface.visible = not inventory_interface.visible
-
+	
+	# Status of the inventory in character
+	character.set_inventory_visible(inventory_interface.visible)
+	
 	#enable to see the mouse or hotbar
 	if inventory_interface.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
