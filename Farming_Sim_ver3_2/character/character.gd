@@ -18,6 +18,7 @@ const SPEED = 5.0
 const LERP_VAL = .15
 const JUMP_VAL= 5.0
 const RAY_DISTANCE = 4
+const MAX_FALL_HEIGHT = -10
 
 
 signal toggle_inventory()
@@ -62,7 +63,13 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		# check if character is falling beyond the floor
+		if global_position.y >= MAX_FALL_HEIGHT:
+			velocity.y -= gravity * delta
+		else:
+			# character falling endless
+			# reset character on start position
+			global_position = Vector3(0,1,0)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
