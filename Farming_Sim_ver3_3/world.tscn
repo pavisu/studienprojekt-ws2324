@@ -1,0 +1,414 @@
+[gd_scene load_steps=31 format=3 uid="uid://ga4brol6kes6"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_2ey7g"]
+[ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
+[ext_resource type="Script" path="res://animation.gd" id="3_w4bpu"]
+[ext_resource type="PackedScene" uid="uid://b8d0b82tji6h6" path="res://interactable/cute_mini_figure.tscn" id="4_bfdnx"]
+[ext_resource type="PackedScene" uid="uid://r0hx456b5lor" path="res://character/character.tscn" id="5_81tks"]
+[ext_resource type="PackedScene" uid="uid://dld0btd4dkcya" path="res://inventory/inventory.tscn" id="5_uhled"]
+[ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="7_xhp4r"]
+[ext_resource type="PackedScene" uid="uid://b1keshh72lxyk" path="res://inventory/hot_bar_inventory.tscn" id="9_8xgcy"]
+[ext_resource type="PackedScene" uid="uid://cljd3lmeeohlc" path="res://inventory/slot.tscn" id="9_q5lab"]
+[ext_resource type="Texture2D" uid="uid://6qkuhx30us84" path="res://character/crosshair_basic.png" id="9_xvhuw"]
+[ext_resource type="MeshLibrary" uid="uid://c10d165yl8f7t" path="res://world_grid/tile_set_source.tres" id="11_irbje"]
+[ext_resource type="PackedScene" uid="uid://cjiv61vc2f4pv" path="res://item/pick_up/pick_up.tscn" id="13_u7kmf"]
+[ext_resource type="Resource" uid="uid://dk44pm5wweydo" path="res://item/items/apple.tres" id="14_ahc6a"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="15_fuwhr"]
+
+[sub_resource type="Environment" id="Environment_g3bud"]
+background_mode = 1
+background_color = Color(0.411765, 0.756863, 0.909804, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vd2np"]
+render_priority = 0
+shader = ExtResource("1_78mpy")
+shader_parameter/grid_size = 1
+shader_parameter/Color_1 = Color(1, 1, 0, 1)
+shader_parameter/Color_2 = Color(0.929412, 0.85098, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13kt2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmhl4"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rwhea"]
+render_priority = 0
+shader = ExtResource("1_78mpy")
+shader_parameter/grid_size = 1
+shader_parameter/Color_1 = Color(0, 0.803922, 0.388235, 1)
+shader_parameter/Color_2 = Color(0, 0.898039, 0.439216, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qmir8"]
+size = Vector3(3, 2, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbvl3"]
+render_priority = 0
+shader = ExtResource("1_78mpy")
+shader_parameter/grid_size = 1
+shader_parameter/Color_1 = Color(0.964706, 0.658824, 0, 1)
+shader_parameter/Color_2 = Color(1, 0.713726, 0.231373, 1)
+
+[sub_resource type="Animation" id="Animation_sy0kk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.25, 3.75, 9.05)]
+}
+
+[sub_resource type="Animation" id="Animation_leev5"]
+resource_name = "slide"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.25, 3.75, 9.05), Vector3(2.25, 3.75, 9.05), Vector3(-1.25, 3.75, 9.05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vyo8q"]
+_data = {
+"RESET": SubResource("Animation_sy0kk"),
+"slide": SubResource("Animation_leev5")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qbube"]
+size = Vector3(7, 2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u3tko"]
+size = Vector3(3, 2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5me7x"]
+size = Vector3(2, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t0nb6"]
+size = Vector3(2.5, 0.5, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxeai"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="Resource" id="Resource_m42l4"]
+script = ExtResource("15_fuwhr")
+item_data = ExtResource("14_ahc6a")
+quantity = 5
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_2ey7g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g3bud")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866026, 0.5, 0.5, -0.433013, 0.75, 0, 6, 0)
+shadow_enabled = true
+shadow_opacity = 0.21
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.259511, 0.95431, 0.148144, 0.0268235, 0.160462, -0.986678, -0.965367, -0.25208, -0.0672397, 2.33743, 2.25487, -2.37949)
+collision_layer = 0
+collision_mask = 7
+mass = 0.1
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, -2.0537e-09, 2.73142e-08, -1.90625e-08, 1, 5.21791e-09, 1.59525e-09, -6.79966e-10, 1, 0, 0, 0)
+size = Vector3(0.5, 0.5, 0.5)
+material = SubResource("ShaderMaterial_vd2np")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, -2.98023e-08, 2.98023e-08, 0, 1, 2.98023e-08, 2.98023e-08, 0, 1, 0, 0, 0)
+size = Vector3(0.5, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_13kt2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, -2.0537e-09, -1.45597e-09, -1.90625e-08, 1, -2.29466e-09, 1.59525e-09, -6.79966e-10, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_dmhl4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00519753, 2.08165e-12, 2.08165e-12)
+use_collision = true
+collision_mask = 7
+size = Vector3(31, 2, 30)
+material = SubResource("ShaderMaterial_rwhea")
+
+[node name="AnimationBody3D3" type="AnimatableBody3D" parent="."]
+transform = Transform3D(-7.23586e-16, 1, -4.37114e-08, 5.21541e-08, -4.37114e-08, -1, -1, -1.33227e-15, -5.21541e-08, 3.25, 3.75, 9.05)
+collision_layer = 6
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimationBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.56635e-22, 0, 6.94832e-23, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_qmir8")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="AnimationBody3D3"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 2, 0.5)
+material = SubResource("ShaderMaterial_fbvl3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="AnimationBody3D3"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 2, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationBody3D3")
+callback_mode_process = 0
+libraries = {
+"": SubResource("AnimationLibrary_vyo8q")
+}
+script = ExtResource("3_w4bpu")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -7, 2, -7)
+billboard = 2
+alpha_cut = 1
+text = "Credits:
+https://www.youtube.com/watch?v=KugpjfQoDbI
+https://www.youtube.com/watch?v=n8D3vEx7NAE
+https://godotshaders.com/shader/world-coordinates-grid-bw-shader/"
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 2, -7)
+billboard = 2
+alpha_cut = 1
+text = "Project description:
+It is a demo, so you can start your own projects with it."
+
+[node name="Label3D3" type="Label3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 6.5, 2, -7)
+billboard = 2
+alpha_cut = 1
+text = "Notes:
+Currently every static and rigid body is a set of 4  objects
+(StaticBody, CollisionShape, CSGBox (shadow), CSGBox)
+And you have to manually change size of each other.
+
+It can be done by script so in the next version of it i will iomplement the script."
+
+[node name="StaticProps" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 5.5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StaticProps"]
+transform = Transform3D(-2.33351e-15, 1, -4.37114e-08, -0.422618, -3.9616e-08, -0.906308, -0.906308, 1.84732e-08, 0.422618, -8, 2.3, -1)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticProps/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("BoxShape3D_qbube")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="StaticProps/StaticBody3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 1.25, 0)
+size = Vector3(7, 2, 0.5)
+material = SubResource("ShaderMaterial_fbvl3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 1.25, 0)
+size = Vector3(7, 2, 0.5)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StaticProps"]
+transform = Transform3D(-7.23586e-16, 1, -4.37114e-08, 5.21541e-08, -4.37114e-08, -1, -1, -1.33227e-15, -5.21541e-08, -6.75, 3.75, 3.55)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticProps/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.56635e-22, 0, 6.94832e-23, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_u3tko")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="StaticProps/StaticBody3D2"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 2, 0.5)
+material = SubResource("ShaderMaterial_fbvl3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D2"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 2, 0.5)
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="StaticProps"]
+transform = Transform3D(-7.23586e-16, 1, -4.37114e-08, 5.21541e-08, -4.37114e-08, -1, -1, -1.33227e-15, -5.21541e-08, 0.75, 3.75, 3.55)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticProps/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.56635e-22, 0, 6.94832e-23, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_u3tko")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="StaticProps/StaticBody3D4"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 2, 0.5)
+material = SubResource("ShaderMaterial_fbvl3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D4"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 2, 0.5)
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="StaticProps"]
+transform = Transform3D(1, -4.37114e-08, 5.21541e-08, 5.21541e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 3.25, 2.5, 2.3)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticProps/StaticBody3D5"]
+transform = Transform3D(1, 0, 1.64203e-15, 0, 1, 0, 1.64203e-15, 0, 1, 0, 0, -1.25)
+shape = SubResource("BoxShape3D_5me7x")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="StaticProps/StaticBody3D5"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 1.64203e-15, 3.72529e-09, 1, 0, 0, -1.25)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("ShaderMaterial_fbvl3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D5"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 1.64203e-15, 3.72529e-09, 1, 0, 0, -1.25)
+size = Vector3(2, 0.5, 0.5)
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="StaticProps"]
+transform = Transform3D(1, -4.37114e-08, 5.21541e-08, 5.21541e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 3.25, 2.5, 4.8)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticProps/StaticBody3D8"]
+transform = Transform3D(1, 0, 1.64203e-15, 0, 1, 0, 1.64203e-15, 0, 1, 0, 0, -4.76837e-07)
+shape = SubResource("BoxShape3D_t0nb6")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="StaticProps/StaticBody3D8"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 1.64203e-15, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(2, 0.5, 3)
+material = SubResource("ShaderMaterial_fbvl3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D8"]
+transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(2, 0.5, 3)
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="StaticProps"]
+transform = Transform3D(-8.74228e-08, -1, 4.37114e-08, 5.21541e-08, -4.37114e-08, -1, 1, -8.74228e-08, 5.21541e-08, 4.5, 2.5, 3.55)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticProps/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.56635e-22, 0, 6.94833e-23, 1, 0, 0, -4.76837e-07)
+shape = SubResource("BoxShape3D_rxeai")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="StaticProps/StaticBody3D6"]
+transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 0.5, 3)
+material = SubResource("ShaderMaterial_fbvl3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D6"]
+transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 0.5, 3)
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="StaticProps"]
+transform = Transform3D(-8.74228e-08, -1, 4.37114e-08, 5.21541e-08, -4.37114e-08, -1, 1, -8.74228e-08, 5.21541e-08, 2, 2.5, 3.55)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticProps/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.56635e-22, 0, 6.94833e-23, 1, 0, 0, -4.76837e-07)
+shape = SubResource("BoxShape3D_rxeai")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="StaticProps/StaticBody3D7"]
+transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 0.5, 3)
+material = SubResource("ShaderMaterial_fbvl3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D7"]
+transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+size = Vector3(3, 0.5, 3)
+
+[node name="Label3D4" type="Label3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7.74062, 2.3, 8.8)
+alpha_cut = 2
+text = "Finish"
+font_size = 64
+
+[node name="character" parent="." instance=ExtResource("5_81tks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38627, 1, -1.50758)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_xhp4r")
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("5_uhled")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("5_uhled")]
+visible = false
+layout_mode = 0
+offset_left = 1149.0
+offset_top = 366.0
+offset_right = 1189.0
+offset_bottom = 406.0
+
+[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("9_q5lab")]
+visible = false
+modulate = Color(1, 1, 1, 0.490196)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="HotBarInventory" parent="UI" instance=ExtResource("9_8xgcy")]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 430.0
+offset_bottom = 90.0
+
+[node name="Crosshair" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+pivot_offset = Vector2(512, 512)
+texture = ExtResource("9_xvhuw")
+
+[node name="Cute mini figure" parent="." instance=ExtResource("4_bfdnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17368, 1.27866, -9.28991)
+
+[node name="PickUp" parent="." instance=ExtResource("13_u7kmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71203, 2.0421, -8.55786)
+slot_data = SubResource("Resource_m42l4")
+
+[node name="GridMap_world" type="GridMap" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh_library = ExtResource("11_irbje")
+cell_center_x = false
+cell_center_z = false
+collision_mask = 7
+data = {
+"cells": PackedInt32Array(16, 0, 0, 16, 1, 0, 16, 2, 0, 16, 3, 0, 16, 4, 0, 16, 5, 0, 16, 6, 0, 16, 7, 0, 16, 8, 0, 16, 9, 0, 16, 10, 0, 16, 11, 0, 16, 12, 0, 16, 13, 0, 16, 14, 0, 17, 0, 0, 17, 1, 0, 17, 2, 0, 17, 3, 0, 17, 4, 0, 17, 5, 0, 17, 6, 0, 17, 7, 0, 17, 8, 0, 17, 9, 0, 17, 10, 0, 17, 11, 0, 17, 12, 0, 17, 13, 0, 17, 14, 0, 18, 0, 0, 18, 1, 0, 18, 2, 0, 18, 3, 0, 18, 4, 0, 18, 5, 0, 18, 6, 0, 18, 7, 0, 18, 8, 0, 18, 9, 0, 18, 10, 0, 18, 11, 0, 18, 12, 0, 18, 13, 0, 18, 14, 0, 19, 0, 0, 19, 1, 0, 19, 2, 0, 19, 3, 0, 19, 4, 0, 19, 5, 0, 19, 6, 0, 19, 7, 0, 19, 8, 0, 19, 9, 0, 19, 10, 0, 19, 11, 0, 19, 12, 0, 19, 13, 0, 19, 14, 0, 20, 0, 0, 20, 1, 0, 20, 2, 0, 20, 3, 0, 20, 4, 0, 20, 5, 0, 20, 6, 0, 20, 7, 0, 20, 8, 0, 20, 9, 0, 20, 10, 0, 20, 11, 0, 20, 12, 0, 20, 13, 0, 20, 14, 0, 21, 0, 0, 21, 1, 0, 21, 2, 0, 21, 3, 0, 21, 4, 0, 21, 5, 0, 21, 6, 0, 21, 7, 0, 21, 8, 0, 21, 9, 0, 21, 10, 0, 21, 11, 0, 21, 12, 0, 21, 13, 0, 21, 14, 0, 22, 0, 0, 22, 1, 0, 22, 2, 0, 22, 3, 0, 22, 4, 0, 22, 5, 0, 22, 6, 0, 22, 7, 0, 22, 8, 0, 22, 9, 0, 22, 10, 0, 22, 11, 0, 22, 12, 0, 22, 13, 0, 22, 14, 0, 23, 0, 0, 23, 1, 0, 23, 2, 0, 23, 3, 0, 23, 4, 0, 23, 5, 0, 23, 6, 0, 23, 7, 0, 23, 8, 0, 23, 9, 0, 23, 10, 0, 23, 11, 0, 23, 12, 0, 23, 13, 0, 23, 14, 0, 24, 0, 0, 24, 1, 0, 24, 2, 0, 24, 3, 0, 24, 4, 0, 24, 5, 0, 24, 6, 0, 24, 7, 0, 24, 8, 0, 24, 9, 0, 24, 10, 0, 24, 11, 0, 24, 12, 0, 24, 13, 0, 24, 14, 0, 25, 0, 0, 25, 1, 0, 25, 2, 0, 25, 3, 0, 25, 4, 0, 25, 5, 0, 25, 6, 0, 25, 7, 0, 25, 8, 0, 25, 9, 0, 25, 10, 0, 25, 11, 0, 25, 12, 0, 25, 13, 0, 25, 14, 0, 26, 0, 0, 26, 1, 0, 26, 2, 0, 26, 3, 0, 26, 4, 0, 26, 5, 0, 26, 6, 0, 26, 7, 0, 26, 8, 0, 26, 9, 0, 26, 10, 0, 26, 11, 0, 26, 12, 0, 26, 13, 0, 26, 14, 0, 27, 0, 0, 27, 1, 0, 27, 2, 0, 27, 3, 0, 27, 4, 0, 27, 5, 0, 27, 6, 0, 27, 7, 0, 27, 8, 0, 27, 9, 0, 27, 10, 0, 27, 11, 0, 27, 12, 0, 27, 13, 0, 27, 14, 0, 28, 0, 0, 28, 1, 0, 28, 2, 0, 28, 3, 0, 28, 4, 0, 28, 5, 0, 28, 6, 0, 28, 7, 0, 28, 8, 0, 28, 9, 0, 28, 10, 0, 28, 11, 0, 28, 12, 0, 28, 13, 0, 28, 14, 0, 29, 0, 0, 29, 1, 0, 29, 2, 0, 29, 3, 0, 29, 4, 0, 29, 5, 0, 29, 6, 0, 29, 7, 0, 29, 8, 0, 29, 9, 0, 29, 10, 0, 29, 11, 0, 29, 12, 0, 29, 13, 0, 29, 14, 0, 30, 0, 0, 30, 1, 0, 30, 2, 0, 30, 3, 0, 30, 4, 0, 30, 5, 0, 30, 6, 0, 30, 7, 0, 30, 8, 0, 30, 9, 0, 30, 10, 0, 30, 11, 0, 30, 12, 0, 30, 13, 0, 30, 14, 0, 16, 65521, 1, 16, 65522, 1, 16, 65523, 1, 16, 65524, 1, 16, 65525, 1, 16, 65526, 1, 16, 65527, 1, 16, 65528, 1, 16, 65529, 1, 16, 65530, 1, 16, 65531, 1, 16, 65532, 1, 16, 65533, 1, 16, 65534, 1, 16, 65535, 1, 17, 65521, 1, 17, 65522, 1, 17, 65523, 1, 17, 65524, 1, 17, 65525, 1, 17, 65526, 1, 17, 65527, 1, 17, 65528, 1, 17, 65529, 1, 17, 65530, 1, 17, 65531, 1, 17, 65532, 1, 17, 65533, 1, 17, 65534, 1, 17, 65535, 1, 18, 65521, 1, 18, 65522, 1, 18, 65523, 1, 18, 65524, 1, 18, 65525, 1, 18, 65526, 1, 18, 65527, 1, 18, 65528, 1, 18, 65529, 1, 18, 65530, 1, 18, 65531, 1, 18, 65532, 1, 18, 65533, 1, 18, 65534, 1, 18, 65535, 1, 19, 65521, 1, 19, 65522, 1, 19, 65523, 1, 19, 65524, 1, 19, 65525, 1, 19, 65526, 1, 19, 65527, 1, 19, 65528, 1, 19, 65529, 1, 19, 65530, 1, 19, 65531, 1, 19, 65532, 1, 19, 65533, 1, 19, 65534, 1, 19, 65535, 1, 20, 65521, 1, 20, 65522, 1, 20, 65523, 1, 20, 65524, 1, 20, 65525, 1, 20, 65526, 1, 20, 65527, 1, 20, 65528, 1, 20, 65529, 1, 20, 65530, 1, 20, 65531, 1, 20, 65532, 1, 20, 65533, 1, 20, 65534, 1, 20, 65535, 1, 21, 65521, 1, 21, 65522, 1, 21, 65523, 1, 21, 65524, 1, 21, 65525, 1, 21, 65526, 1, 21, 65527, 1, 21, 65528, 1, 21, 65529, 1, 21, 65530, 1, 21, 65531, 1, 21, 65532, 1, 21, 65533, 1, 21, 65534, 1, 21, 65535, 1, 22, 65521, 1, 22, 65522, 1, 22, 65523, 1, 22, 65524, 1, 22, 65525, 1, 22, 65526, 1, 22, 65527, 1, 22, 65528, 1, 22, 65529, 1, 22, 65530, 1, 22, 65531, 1, 22, 65532, 1, 22, 65533, 1, 22, 65534, 1, 22, 65535, 1, 23, 65521, 1, 23, 65522, 1, 23, 65523, 1, 23, 65524, 1, 23, 65525, 1, 23, 65526, 1, 23, 65527, 1, 23, 65528, 1, 23, 65529, 1, 23, 65530, 1, 23, 65531, 1, 23, 65532, 1, 23, 65533, 1, 23, 65534, 1, 23, 65535, 1, 24, 65521, 1, 24, 65522, 1, 24, 65523, 1, 24, 65524, 1, 24, 65525, 1, 24, 65526, 1, 24, 65527, 1, 24, 65528, 1, 24, 65529, 1, 24, 65530, 1, 24, 65531, 1, 24, 65532, 1, 24, 65533, 1, 24, 65534, 1, 24, 65535, 1, 25, 65521, 1, 25, 65522, 1, 25, 65523, 1, 25, 65524, 1, 25, 65525, 1, 25, 65526, 1, 25, 65527, 1, 25, 65528, 1, 25, 65529, 1, 25, 65530, 1, 25, 65531, 1, 25, 65532, 1, 25, 65533, 1, 25, 65534, 1, 25, 65535, 1, 26, 65521, 1, 26, 65522, 1, 26, 65523, 1, 26, 65524, 1, 26, 65525, 1, 26, 65526, 1, 26, 65527, 1, 26, 65528, 1, 26, 65529, 1, 26, 65530, 1, 26, 65531, 1, 26, 65532, 1, 26, 65533, 1, 26, 65534, 1, 26, 65535, 1, 27, 65521, 1, 27, 65522, 1, 27, 65523, 1, 27, 65524, 1, 27, 65525, 1, 27, 65526, 1, 27, 65527, 1, 27, 65528, 1, 27, 65529, 1, 27, 65530, 1, 27, 65531, 1, 27, 65532, 1, 27, 65533, 1, 27, 65534, 1, 27, 65535, 1, 28, 65521, 1, 28, 65522, 1, 28, 65523, 1, 28, 65524, 1, 28, 65525, 1, 28, 65526, 1, 28, 65527, 1, 28, 65528, 1, 28, 65529, 1, 28, 65530, 1, 28, 65531, 1, 28, 65532, 1, 28, 65533, 1, 28, 65534, 1, 28, 65535, 1, 29, 65521, 1, 29, 65522, 1, 29, 65523, 1, 29, 65524, 1, 29, 65525, 1, 29, 65526, 1, 29, 65527, 1, 29, 65528, 1, 29, 65529, 1, 29, 65530, 1, 29, 65531, 1, 29, 65532, 1, 29, 65533, 1, 29, 65534, 1, 29, 65535, 1, 30, 65521, 1, 30, 65522, 1, 30, 65523, 1, 30, 65524, 1, 30, 65525, 1, 30, 65526, 1, 30, 65527, 1, 30, 65528, 1, 30, 65529, 1, 30, 65530, 1, 30, 65531, 1, 30, 65532, 1, 30, 65533, 1, 30, 65534, 1, 30, 65535, 1, 16, 15, 0, 17, 15, 0, 18, 15, 0, 19, 15, 0, 20, 15, 0, 21, 15, 0, 22, 15, 0, 23, 15, 0, 24, 15, 0, 25, 15, 0, 26, 15, 0, 30, 15, 0, 29, 15, 0, 28, 15, 0, 27, 15, 0)
+}
+
+[connection signal="drop_slot_data" from="UI/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
+[connection signal="visibility_changed" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_visibility_changed"]

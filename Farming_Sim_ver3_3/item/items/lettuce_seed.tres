@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=4 format=3 uid="uid://yv2piftl5fcn"]
+
+[ext_resource type="Script" path="res://item/item_data_equip.gd" id="1_paexx"]
+[ext_resource type="Texture2D" uid="uid://g1r7aqvb5irm" path="res://item/vegetables_icons.png" id="2_n2sgf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew7ym"]
+atlas = ExtResource("2_n2sgf")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_paexx")
+seed = 1
+name = "lettuce_seed"
+description = "With lettuce seed you can grow lettuce"
+stackable = true
+texture = SubResource("AtlasTexture_ew7ym")
