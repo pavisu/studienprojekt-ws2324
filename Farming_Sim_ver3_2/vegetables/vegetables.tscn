@@ -119,10 +119,13 @@ shape = SubResource("BoxShape3D_o75rh")
 [node name="02_carrot_full" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 visible = false
+layers = 9
 surface_material_override/0 = SubResource("StandardMaterial3D_2dxfw")
 surface_material_override/1 = SubResource("StandardMaterial3D_b8q2o")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="02_carrot_full" index="0"]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="02_carrot_full/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000686646, 0.829437, -0.00185394)
@@ -131,10 +134,13 @@ shape = SubResource("BoxShape3D_rher4")
 [node name="02_carrot_middle" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 visible = false
+layers = 8
 surface_material_override/0 = SubResource("StandardMaterial3D_2cqym")
 surface_material_override/1 = SubResource("StandardMaterial3D_yheeb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="02_carrot_middle" index="0"]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="02_carrot_middle/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000228882, 0.415161, 0.00209045)
@@ -142,10 +148,13 @@ shape = SubResource("BoxShape3D_p5osw")
 
 [node name="02_carrot_seed" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+layers = 8
 surface_material_override/0 = SubResource("StandardMaterial3D_p6kyk")
 surface_material_override/1 = SubResource("StandardMaterial3D_1ivu1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="02_carrot_seed" index="0"]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="02_carrot_seed/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00109863, 0.18988, 0.00305176)

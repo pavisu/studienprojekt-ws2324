@@ -38,6 +38,7 @@ func plant(coords : Vector3, chosen_seed : String):
 	if debug:
 		print("Collision Point: ", coords)
 		print("Collision Point rounded: ", crop_coords)
+		print("CropType: ", new_crop.croptype)
 		print("Planting crop")
 
 # Function to harvest the selected plant
