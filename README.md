@@ -13,6 +13,8 @@ Inventar öffnen und schließen: Tabulator
 
 Externen Inventar öffnen: E Taste
 
+Spiel beenden: Escape Taste
+
 ## Spielersteuerung
 Vorwärtsbewegung: W Taste
 
