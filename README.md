@@ -1,6 +1,37 @@
 # studienprojekt-ws2324
 Studienprojekt: Entwicklung eines Farming Simulators auf einer zeitgemäßen Game Engine
 
+## Team:
+Ralf Zeller🦊
+
+Pavithra Sureshkumar🐱
+
+# Hinweise zur Steuerung:
+Kamerasteuerung: Mausbewegung
+
+Inventar öffnen und schließen: Tabulator
+
+Externen Inventar öffnen: E Taste
+
+## Interaktion im Inventar
+Slot Data auswählen: Linke Maustaste
+
+Slot Data ablegen: Linke Maustaste
+
+Nur eine Slot Data ablegen: Rechte Maustaste
+
+Fusionieren der Slot Daten zu den jeweiligen Slot Daten: Linke Maustaste
+
+Herauswerfen der Slotdaten: Linke Maustaste (außerhalb des Inventars)
+
+Herauswerfen einzelner Slotdaten: Rechte Maustaste (außerhalb des Inventars)
+
+Einsammeln der SlotDaten: Bewegen des Charakters zum Item 
+
+## An- und Abbau der Pflanzen
+Anbau: Rechte Maustaste 
+Abbau: Linke Maustaste
+
 # Showcase:
 
 - World Szene
